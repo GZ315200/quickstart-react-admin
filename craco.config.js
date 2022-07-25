@@ -26,13 +26,11 @@ module.exports = {
     },
   ],
   webpack: {
-    //修改打包文件夹
     configure: (webpackConfig, { env, paths }) => {
       paths.appBuild = webpackConfig.output.path = path.resolve('dist');
       return webpackConfig;
     }
   },
-  //设置dev环境 proxy
   devServer: {
     hot: true,
     proxy: {
