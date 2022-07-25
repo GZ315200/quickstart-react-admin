@@ -23,7 +23,7 @@ const instance = axios.create({
   
   instance.interceptors.response.use(response => {
     // refresh access token
-    const token = response.headers.authorization;
+    const token = response.headers.Authorization;
     if (token) {
       setToken(token);
     }
