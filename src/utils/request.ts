@@ -43,8 +43,7 @@ const instance = axios.create({
     url: string | AxiosRequestConfig,
     config?: AxiosRequestConfig,
   ): Promise<[ApiResponse<T>, K]> {
-    const axiosPromise =
-      typeof url === 'string' ? instance(url, config) : instance(url);
+    const axiosPromise = typeof url === 'string' ? instance(url, config) : instance(url);
     return axiosPromise.then(response => {
       return [response.data as ApiResponse<T>, response.headers as unknown as K];
     });
