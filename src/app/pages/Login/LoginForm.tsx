@@ -2,9 +2,11 @@
 
 import React from 'react'
 
-type Props = {}
+interface ILoginFormProps {
+  
+}
 
-const LoginForm = (props: Props) => {
+const LoginForm : React.FC<ILoginFormProps> = (props) => {
   return (
      <div>
         

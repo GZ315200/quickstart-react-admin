@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { DatePicker } from './app/components';
 import './App.less';
-
 import zhCN from 'antd/es/locale/zh_CN';
 import { ConfigProvider } from 'antd';
 import moment from 'moment';
 import type { RadioChangeEvent } from 'antd';
 import { Locales } from 'app/components/Header';
+import AuthLayout from 'app/components/AuthLayout'
+import { Route, Routes } from 'react-router-dom';
 
-import Brand from 'app/components/Brand';
 
-const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
+import AdminLogin from 'app/pages/Login/AdminLogin';
+
 
 const App: React.FC = () => {
   const [locale, setLocal] = useState(zhCN);
@@ -25,23 +25,16 @@ const App: React.FC = () => {
     }
   }
 
-  function onChange(date: any, dateString: any) {
-    console.log(date, dateString);
-  }
   return (
     <div className="App">
       <ConfigProvider locale={locale}>
         <Locales locale={locale} onChangeLocale={changeLocale} />
-        <Brand />
-        <div>
-          <DatePicker onChange={onChange} />
-          <br />
-          <MonthPicker onChange={onChange} placeholder="Select month" />
-          <br />
-          <RangePicker onChange={onChange} />
-          <br />
-          <WeekPicker onChange={onChange} placeholder="Select week" />
-        </div>
+        <Routes>
+          <Route path="/login" element={<AdminLogin />} />
+          <Route path="/" element={<AuthLayout />}>
+             
+          </Route>
+        </Routes>
       </ConfigProvider>
 
     </div>
