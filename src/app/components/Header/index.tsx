@@ -1,1 +1,1 @@
-export {}
+export { default as Locales } from './Locales'  

@@ -3,10 +3,10 @@ import { DatePicker } from './app/components';
 import './App.less';
 
 import zhCN from 'antd/es/locale/zh_CN';
-import enUS from 'antd/es/locale/en_US';
-import { ConfigProvider, Radio } from 'antd';
+import { ConfigProvider } from 'antd';
 import moment from 'moment';
 import type { RadioChangeEvent } from 'antd';
+import { Locales } from 'app/components/Header';
 
 const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
 
@@ -29,14 +29,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <ConfigProvider locale={locale}>
-        <Radio.Group value={locale} onChange={changeLocale}>
-          <Radio.Button key="en" value={enUS}>
-            English
-          </Radio.Button>
-          <Radio.Button key="cn" value={zhCN}>
-            中文
-          </Radio.Button>
-        </Radio.Group>
+        <Locales locale={locale} onChangeLocale={changeLocale} />
         <div>
           <DatePicker onChange={onChange} />
           <br />
