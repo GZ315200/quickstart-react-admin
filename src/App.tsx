@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DatePicker } from './components';
+import { DatePicker } from './app/components';
 import './App.less';
 
 import zhCN from 'antd/es/locale/zh_CN';
