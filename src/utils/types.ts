@@ -1,6 +1,6 @@
-
-
-
+/**
+ * global types
+ */
 export interface ApiResponse<T> {
   code: number;
   errorMsg: string;

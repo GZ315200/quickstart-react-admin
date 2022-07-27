@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { BASE_API_URL } from 'globalConstants';
-import { ApiResponse } from 'types'
+import { ApiResponse } from 'utils/types'
 import { setToken, getToken } from './auth'
 
 
