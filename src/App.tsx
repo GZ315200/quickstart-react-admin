@@ -8,6 +8,8 @@ import moment from 'moment';
 import type { RadioChangeEvent } from 'antd';
 import { Locales } from 'app/components/Header';
 
+import Brand from 'app/components/Brand';
+
 const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
 
 const App: React.FC = () => {
@@ -30,6 +32,7 @@ const App: React.FC = () => {
     <div className="App">
       <ConfigProvider locale={locale}>
         <Locales locale={locale} onChangeLocale={changeLocale} />
+        <Brand />
         <div>
           <DatePicker onChange={onChange} />
           <br />

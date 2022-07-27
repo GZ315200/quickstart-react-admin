@@ -20,7 +20,7 @@ const Locales = (props: Props) => {
                     <Radio.Button key="cn" value={zhCN}>
                         中文
                     </Radio.Button>
-                </Radio.Group>
+            </Radio.Group>
         </div>
     )
 }
