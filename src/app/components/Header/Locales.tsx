@@ -13,9 +13,13 @@ export interface ILocalesProps {
 
 const Locales: React.FC<ILocalesProps> = (props: ILocalesProps) => {
 
+    const { locale } = props;
+    const selectKey = locale.locale === 'zh-cn' ? ['cn'] : ['en'];
+
     const menu = (
         <Menu
             onClick={props.onChangeLocale}
+            selectedKeys={selectKey}
             items={[
                 {
                     label: 'English',

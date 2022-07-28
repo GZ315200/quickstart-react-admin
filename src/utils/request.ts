@@ -1,7 +1,9 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { BASE_API_URL } from 'globalConstants';
+import { isString, isUndef } from 'utils';
 import { ApiResponse } from 'utils/types'
 import { setToken, getToken } from './auth'
+
 
 
 const instance = axios.create({
@@ -14,7 +16,7 @@ const instance = axios.create({
   instance.interceptors.request.use(config => {
     const token = getToken();
     if (token) {
-        if (typeof config.headers !== 'undefined') {
+        if (!isUndef(config.headers)) {
             config.headers.Authorization = token 
         }
     }
@@ -24,7 +26,7 @@ const instance = axios.create({
   instance.interceptors.response.use(response => {
     // refresh access token
     const token = response.headers.Authorization;
-    if (token) {
+    if (token && isString(token)) {
       setToken(token);
     }
     return response;

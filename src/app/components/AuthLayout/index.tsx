@@ -16,9 +16,8 @@ export interface ILayoutProps {
 const AuthLayout = (props: ILayoutProps) => {
 
   const loginUser = useAppSelector(selectLoginUser);
-  console.log('loginUser', loginUser)
   const { wechat, userType } = loginUser;
-  const username =  userType === 0 ? 'guest' : wechat
+  const username =  userType === 0 ? 'Guest' : wechat
 
   return (
     <div>
@@ -30,6 +29,7 @@ const AuthLayout = (props: ILayoutProps) => {
         handleVisibleChange={props.handleVisibleChange} 
         />
         <UserProfile username={username} />
+        {/* <DatePicker /> */}
         <ul>
         <li>
           <Link to="/">Public Page</Link>

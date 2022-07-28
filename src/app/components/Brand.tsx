@@ -1,5 +1,10 @@
 
-import { SPACE_MD, SPACE_TIMES, FONT_SIZE_ICON_XXL, FONT_WEIGHT_BOLD, LINE_HEIGHT_ICON_XXL } from 'app/styleConstants';
+import { 
+  SPACE_MD, 
+  SPACE_TIMES, 
+  FONT_SIZE_ICON_XXL, 
+  FONT_WEIGHT_BOLD, 
+  LINE_HEIGHT_ICON_XXL } from 'app/styleConstants';
 import React from 'react';
 import styled from 'styled-components';
 import logo from 'assets/images/shop.jpeg'
