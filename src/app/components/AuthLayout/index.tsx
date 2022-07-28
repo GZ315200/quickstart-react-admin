@@ -17,20 +17,20 @@ const AuthLayout = (props: ILayoutProps) => {
 
   const loginUser = useAppSelector(selectLoginUser);
   const { wechat, userType } = loginUser;
-  const username =  userType === 0 ? 'Guest' : wechat
+  const username = userType === 0 ? 'Guest' : wechat
 
   return (
     <div>
-        <Avatar src={avatarLogo} />
-        <Locales 
-        locale={props.locale} 
-        onChangeLocale={props.onChangeLocale} 
-        visible={props.visible} 
-        handleVisibleChange={props.handleVisibleChange} 
-        />
-        <UserProfile username={username} />
-        {/* <DatePicker /> */}
-        <ul>
+      <Avatar src={avatarLogo} />
+      <Locales
+        locale={props.locale}
+        onChangeLocale={props.onChangeLocale}
+        visible={props.visible}
+        handleVisibleChange={props.handleVisibleChange}
+      />
+      <UserProfile username={username} />
+      {/* <DatePicker /> */}
+      <ul>
         <li>
           <Link to="/">Public Page</Link>
         </li>

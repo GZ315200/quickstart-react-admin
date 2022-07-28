@@ -3,6 +3,7 @@ import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, Space } from 'antd';
 import type { Locale } from 'antd/es/locale-provider';
+import useMemoizedFn from 'app/hooks/useMemoizedFn';
 
 export interface ILocalesProps {
     locale: Locale;
@@ -18,7 +19,7 @@ const Locales: React.FC<ILocalesProps> = (props: ILocalesProps) => {
 
     const menu = (
         <Menu
-            onClick={props.onChangeLocale}
+            onClick={useMemoizedFn(props.onChangeLocale)}
             selectedKeys={selectKey}
             items={[
                 {
