@@ -11,7 +11,16 @@ const AuthLayout = (props: Props) => {
           <Link to="/">Public Page</Link>
         </li>
         <li>
-          <Link to="/protected">Protected Page</Link>
+          <Link to="/login">Login Page</Link>
+        </li>
+        <li>
+          <Link to="/sysAuthUser">SysAuthUser Page</Link>
+        </li>
+        <li>
+          <Link to="/weAppUser">WeAppUser Page</Link>
+        </li>
+        <li>
+          <Link to="/product">Product Page</Link>
         </li>
       </ul>
     </div>

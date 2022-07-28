@@ -1,26 +1,42 @@
 
 import React from 'react';
-import { Radio, RadioChangeEvent } from 'antd';
-import zhCN from 'antd/es/locale/zh_CN';
-import enUS from 'antd/es/locale/en_US';
+import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Menu, Space } from 'antd';
 import type { Locale } from 'antd/es/locale-provider';
 
-
-type Props = {
+export interface ILocalesProps {
     locale: Locale;
-    onChangeLocale: (e: RadioChangeEvent) => void
+    onChangeLocale: (e) => any;
+    visible: boolean;
+    handleVisibleChange: (flag: boolean) => void;
 }
-const Locales = (props: Props) => {
+
+const Locales: React.FC<ILocalesProps> = (props: ILocalesProps) => {
+
+    const menu = (
+        <Menu
+            onClick={props.onChangeLocale}
+            items={[
+                {
+                    label: 'English',
+                    key: 'en'
+                },
+                {
+                    label: '中文',
+                    key: 'cn',
+                },
+            ]}
+        />
+    );
+
     return (
         <div>
-             <Radio.Group value={props.locale} onChange={props.onChangeLocale}>
-                    <Radio.Button key="en" value={enUS}>
-                        English
-                    </Radio.Button>
-                    <Radio.Button key="cn" value={zhCN}>
-                        中文
-                    </Radio.Button>
-            </Radio.Group>
+            <Dropdown overlay={menu} onVisibleChange={props.handleVisibleChange} visible={props.visible}>
+                <Space>
+                    选择语言
+                    <DownOutlined />
+                </Space>
+            </Dropdown>
         </div>
     )
 }

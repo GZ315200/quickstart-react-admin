@@ -7,7 +7,7 @@ interface IAdminLoginProps {
 const AdminLogin: React.FC<IAdminLoginProps> = (props) => {
   return (
     <div>
-        
+        AdminLogin
     </div>
   );
 };
