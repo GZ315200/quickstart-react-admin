@@ -1,11 +1,35 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Avatar, Locales, UserProfile } from '../Header'
+import avatarLogo from 'assets/images/shop.jpeg'
+import { Locale } from 'antd/es/locale-provider';
+import { useAppSelector } from 'app/hooks/useAppSelector';
+import { selectLoginUser } from 'app/slices/userLoginSlice';
 
-type Props = {}
+export interface ILayoutProps {
+  locale: Locale;
+  onChangeLocale: (e) => any;
+  visible: boolean;
+  handleVisibleChange: (flag: boolean) => void;
+}
 
-const AuthLayout = (props: Props) => {
+const AuthLayout = (props: ILayoutProps) => {
+
+  const loginUser = useAppSelector(selectLoginUser);
+  console.log('loginUser', loginUser)
+  const { wechat, userType } = loginUser;
+  const username =  userType === 0 ? 'guest' : wechat
+
   return (
     <div>
+        <Avatar src={avatarLogo} />
+        <Locales 
+        locale={props.locale} 
+        onChangeLocale={props.onChangeLocale} 
+        visible={props.visible} 
+        handleVisibleChange={props.handleVisibleChange} 
+        />
+        <UserProfile username={username} />
         <ul>
         <li>
           <Link to="/">Public Page</Link>
@@ -21,6 +45,9 @@ const AuthLayout = (props: Props) => {
         </li>
         <li>
           <Link to="/product">Product Page</Link>
+        </li>
+        <li>
+          <Link to="/notfound">notfound Page</Link>
         </li>
       </ul>
     </div>

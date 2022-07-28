@@ -4,19 +4,15 @@ import zhCN from 'antd/es/locale/zh_CN';
 import enUS from 'antd/es/locale/en_US';
 import { ConfigProvider, MenuProps } from 'antd';
 import moment from 'moment';
-import { Locales } from 'app/components/Header';
 import AuthLayout from 'app/components/AuthLayout';
 import { Route, Routes } from 'react-router-dom';
 import AdminLogin from 'app/pages/Login/AdminLogin';
 import type { Locale } from 'antd/es/locale-provider';
 
-
 import { SysAuthUserList } from 'app/pages/SysAuthUser';
 import { WeAppUserList } from 'app/pages/WeAppUser';
 import { ProductList } from 'app/pages/Product';
-
-
-
+import { NotFound } from 'app/components/Result';
 
 const App: React.FC = () => {
   const [locale, setLocale] = useState<Locale>(zhCN);
@@ -41,13 +37,14 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <ConfigProvider locale={locale}>
-        <Locales locale={locale} onChangeLocale={handleMenuClick} visible={visible} handleVisibleChange={handleVisibleChange} />
         <Routes>
-          <Route path="/" element={<AuthLayout />} />
+          <Route path="/" element={<AuthLayout locale={locale} visible={visible}
+            handleVisibleChange={handleVisibleChange} onChangeLocale={handleMenuClick}/>} />
           <Route path="/login" element={<AdminLogin />} />
           <Route path="/sysAuthUser" element={<SysAuthUserList />} />
           <Route path="/weAppUser" element={<WeAppUserList />} />
           <Route path="/product" element={<ProductList />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </ConfigProvider>
 
