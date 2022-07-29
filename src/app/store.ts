@@ -5,7 +5,7 @@ import appReducer from 'app/redux/appStateSlice';
 export const store = configureStore({
   reducer: {
     userLogin: userReducer,
-    app: appReducer,
+    appState: appReducer,
   },
 });
 

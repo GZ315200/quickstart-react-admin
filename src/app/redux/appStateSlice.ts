@@ -32,6 +32,6 @@ export const appStateSlice = createSlice({
 });
 
 export const { setLoginState, setSiderState, setHeaderState, setRouteHub } = appStateSlice.actions;
-export const selectAppState = (state: RootState) => state.app
+export const selectAppState = (state: RootState) => state.appState
 
 export default appStateSlice.reducer;
