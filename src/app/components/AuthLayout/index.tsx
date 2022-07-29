@@ -1,7 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Avatar, Locales, UserProfile } from '../Header'
-import avatarLogo from 'assets/images/shop.jpeg'
+import React from 'react';
+import type { MenuProps } from 'antd';
+import { Breadcrumb, Layout, Menu } from 'antd';
+import { Link } from 'react-router-dom';
+import { Avatar, Locales, UserProfile } from '../Header';
+import avatarLogo from 'assets/images/shop.jpeg';
 import { Locale } from 'antd/es/locale-provider';
 import { useAppSelector } from 'app/hooks/useAppSelector';
 import { selectLoginUser } from 'app/slices/userLoginSlice';

@@ -1,11 +1,15 @@
 
 
 export const menuConfig = [
-    { label: '菜单项一', key: 'item-1' }, // 菜单项务必填写 key
-    { label: '菜单项二', key: 'item-2' },
+    { label: '首页', key: 'home' }, // 菜单项务必填写 key
+    { label: '商铺', key: 'shop' },
     {
-        label: '子菜单',
-        key: 'submenu',
-        children: [{ label: '子菜单项', key: 'submenu-item-1' }],
+        label: '用户',
+        key: 'user',
+        children: [
+        { label: '小程序用户', key: 'weapp-user' },
+        { label: '系统用户', key: 'sys-user' }
+        ],
     },
+    { label: '产品', key: 'product' },
 ];
