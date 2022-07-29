@@ -46,7 +46,7 @@ const App: React.FC = () => {
           <Routes>
              <Route path='/' element={ <MainLayout layout={layoutInfo}/> } />
              <Route path='/user/login' element={ <UserLayout /> } />
-             <Route path="/404" element={ <NotFound /> }></Route>
+             <Route path="*" element={<NotFound />} />
           </Routes>
         </ConfigProvider>
       </BrowserRouter>
