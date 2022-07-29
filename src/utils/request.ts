@@ -5,19 +5,20 @@ import { ApiResponse } from 'utils/types'
 import { setToken, getToken } from './auth'
 
 
-
 const instance = axios.create({
     baseURL: BASE_API_URL,
     validateStatus(status) {
       return status < 400;
     },
+    responseType: 'json',
+    withCredentials: true,
   });
   
   instance.interceptors.request.use(config => {
     const token = getToken();
     if (token) {
         if (!isUndef(config.headers)) {
-            config.headers.Authorization = token 
+            config.headers.Authorization = `Bearer ${token}`
         }
     }
     return config;
@@ -27,7 +28,7 @@ const instance = axios.create({
     // refresh access token
     const token = response.headers.Authorization;
     if (token && isString(token)) {
-      setToken(token);
+      setToken(token.replace("Bearer ", ""));
     }
     return response;
   });

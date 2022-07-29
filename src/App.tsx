@@ -35,7 +35,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
+    <div className="app">
       <ConfigProvider locale={locale}>
         <Routes>
           <Route path="/" element={<AuthLayout locale={locale} visible={visible}

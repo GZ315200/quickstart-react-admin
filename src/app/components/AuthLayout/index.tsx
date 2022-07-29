@@ -31,6 +31,7 @@ const AuthLayout = (props: ILayoutProps) => {
         handleVisibleChange={props.handleVisibleChange}
       />
       <UserProfile username={username} />
+      
       {/* <DatePicker /> */}
       <ul>
         <li>
