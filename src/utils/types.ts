@@ -10,3 +10,22 @@ export interface ApiResponse<T> {
 type Nullable<T> = T | null;
 
 export type ValueOf<T> = T[keyof T];
+
+
+export interface RouteItem {
+  /** 显示在侧边栏的名称 */
+  title: string
+  /** 页面路由组件 */
+  component?: React.LazyExoticComponent<() => JSX.Element> | JSX.Element
+  /** 图标 */
+  icon?
+  /** 路径 */
+  path?: string
+  /** 子菜单路由 */
+  children?: RouteItem[]
+  /** 权限列表 */
+  permissions?: string[]
+  /** 控制是否在侧边栏中显示 */
+  hidden?: boolean
+  key?: string
+}

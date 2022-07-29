@@ -6,7 +6,7 @@ import { Avatar, Locales, UserProfile } from '../Header';
 import avatarLogo from 'assets/images/shop.jpeg';
 import { Locale } from 'antd/es/locale-provider';
 import { useAppSelector } from 'app/hooks/useAppSelector';
-import { selectLoginUser } from 'app/slices/userLoginSlice';
+import { selectLoginUser } from 'app/redux/userLoginSlice';
 
 export interface ILayoutProps {
   locale: Locale;
@@ -18,7 +18,7 @@ export interface ILayoutProps {
 const AuthLayout = (props: ILayoutProps) => {
 
   const loginUser = useAppSelector(selectLoginUser);
-  const { wechat, userType } = loginUser;
+  const { wechat, userType } = loginUser.info;
   const username = userType === 0 ? 'Guest' : wechat
 
   return (

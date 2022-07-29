@@ -4,24 +4,28 @@ import { LoginUserResp } from "app/types/user";
 
 
 export interface UserloginState {
-    userId: number;
-    wechat: string;
-    userType: number;
-    isSysUser: boolean;
-    isRoot: boolean;
-    managerPhone: string,
-    shopLogo: string
+    info: {
+        userId: number;
+        wechat: string;
+        userType: number;
+        isSysUser: boolean;
+        isRoot: boolean;
+        managerPhone: string,
+        shopLogo: string
+    }
 }
 
 const initialState: UserloginState = {
-    userId: 0,
-    wechat: '',
-    userType: 0,
-    isSysUser: false,
-    isRoot: false,
-    managerPhone: '',
-    shopLogo: '',
-  };
+    info: {
+        userId: 0,
+        wechat: '',
+        userType: 0,
+        isSysUser: false,
+        isRoot: false,
+        managerPhone: '',
+        shopLogo: '',
+    }
+};
 
 
 export const userLoginSlice = createSlice({
@@ -29,7 +33,7 @@ export const userLoginSlice = createSlice({
     initialState,
     reducers: {
         addLoginUser: (state, action: PayloadAction<LoginUserResp>) => {
-           state = { ...action.payload }
+            state = { ...action.payload }
         },
         clearLoginUser: (state) => {
             state = { ...initialState }

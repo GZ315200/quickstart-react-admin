@@ -1,10 +1,6 @@
-
-
 import React from 'react'
 
-type Props = {}
-
-export default function SysAuthUserList(props: Props) {
+export default function SysAuthUserList() {
   return (
     <div>SysAuthUserList</div>
   );

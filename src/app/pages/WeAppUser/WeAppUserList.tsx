@@ -1,9 +1,8 @@
 
 import React from 'react'
 
-type Props = {}
 
-export default function WeAppUserList(props: Props) {
+export default function WeAppUserList() {
   return (
     <div>WeAppUserList</div>
   )

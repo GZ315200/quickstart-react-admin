@@ -1,12 +1,8 @@
-import * as React from 'react';
+import React from 'react'
 
-interface IProductListProps {
-}
 
-const ProductList: React.FC<IProductListProps> = (props: IProductListProps) => {
+export default function ProductList() {
   return (
     <div>ProductList</div>
-  );
-};
-
-export default ProductList;
+  )
+}
