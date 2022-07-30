@@ -15,7 +15,7 @@ export default function Login() {
   }
 
   return (
-    <Wrapper>
+    <LoginWrapper>
        <FormBar>
           <h2>登录系统</h2>
           <p>使用手机号和令牌密码登录本系统</p>
@@ -78,11 +78,11 @@ export default function Login() {
           </p>
         </Form.Item>
       </Form>
-    </Wrapper>
+    </LoginWrapper>
   )
 }
 
-const Wrapper = styled.div`
+const LoginWrapper = styled.div`
   width: 100%;
 `;
 
