@@ -7,11 +7,7 @@ export interface ApiResponse<T> {
   data: T;
 }
 
-type Nullable<T> = T | null;
-
 export type ValueOf<T> = T[keyof T];
-
-
 export interface RouteItem {
   /** 显示在侧边栏的名称 */
   title: string

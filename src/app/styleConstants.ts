@@ -18,7 +18,7 @@ export const EMPHASIS_LEVEL = 10;
 export const MODAL_LEVEL = 1000;
 
 // base color
-export const BLUE = '#1B9AEE';
+export const BLUE = '#556ee6';
 export const GREEN = '#15AD31';
 export const ORANGE = '#FA8C15';
 export const YELLOW = '#FAD414';
@@ -47,7 +47,7 @@ export const G70 = '#495057';
 export const G80 = '#343a40';
 export const G90 = '#212529';
 export const BLACK = '#000000';
-
+export const BG10 = 'rgb(246, 248, 251)'
 // theme color
 export const PRIMARY = BLUE;
 export const INFO = PRIMARY;
@@ -57,6 +57,7 @@ export const ERROR = RED;
 export const HIGHLIGHT = RED;
 export const WARNING = ORANGE;
 export const NORMAL = G40;
+export const APP_BG = BG10
 
 // font
 export const FONT_SIZE_BASE = 16;

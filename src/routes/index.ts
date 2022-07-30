@@ -2,7 +2,6 @@ import { lazy } from 'react';
 import type { RouteItem } from 'utils/types';
 
 import { AiOutlineAreaChart, AiOutlinePayCircle, AiOutlineUser } from "react-icons/ai";
-
 const DashboardHome = lazy(() => import('app/pages/Dashboard/DashboardHome'));
 const SysAuthUser = lazy(() => import('app/pages/SysAuthUser/SysAuthUserList'));
 const WeappUser = lazy(() => import('app/pages/WeAppUser/WeAppUserList'));
