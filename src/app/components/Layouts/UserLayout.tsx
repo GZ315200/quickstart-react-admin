@@ -1,4 +1,4 @@
-import React, { lazy, useState } from 'react';
+import React, { lazy, useEffect, useState } from 'react';
 import styled from 'styled-components/macro';
 import logo from 'assets/images/logo48.png';
 import { APP_BG, PRIMARY } from 'app/styleConstants';
@@ -9,6 +9,8 @@ import userPlate2 from 'assets/images/user_plate_2.png';
 import userPlate3 from 'assets/images/user_plate_3.png';
 import { CarouselProps } from 'app/types';
 import { SHOP_HEADER_TITLE } from 'globalConstants';
+import { useAppSelector } from 'app/hooks';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = lazy(() => import('app/pages/Login/Login'));
@@ -35,6 +37,15 @@ const itemArr = [
 export default function UserLayout() {
 
   const [carouselData, setcarouselData] = useState<CarouselProps[]>(itemArr);
+  const isLogin = useAppSelector(({ appState }) => appState.isLogin);
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate("/");
+    }
+  }, [isLogin, navigate])
+  
 
   return (
     <LayoutWapper>
