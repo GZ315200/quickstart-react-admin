@@ -23,6 +23,8 @@ export const GREEN = '#15AD31';
 export const ORANGE = '#FA8C15';
 export const YELLOW = '#FAD414';
 export const RED = '#E62412';
+export const GRAY = '#74788d';
+export const SECONDARY_GRAY = '#495057';
 
 /* gray
  *
@@ -50,6 +52,7 @@ export const BLACK = '#000000';
 export const BG10 = 'rgb(246, 248, 251)'
 // theme color
 export const PRIMARY = BLUE;
+export const SECONDARY = GRAY
 export const INFO = PRIMARY;
 export const SUCCESS = GREEN;
 export const PROCESSING = BLUE;

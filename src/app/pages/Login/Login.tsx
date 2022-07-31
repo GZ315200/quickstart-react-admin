@@ -2,6 +2,7 @@ import styled from 'styled-components/macro';
 import React, { useState } from 'react'
 import { Button, Checkbox, Form, Input } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
+import { GRAY, SECONDARY_GRAY } from 'app/styleConstants';
 
 export default function Login() {
 
@@ -12,6 +13,8 @@ export default function Login() {
 
   const handleLogin = (values) => {
       console.log('======', values)
+      
+
   }
 
   return (
@@ -30,11 +33,10 @@ export default function Login() {
         <Form.Item
           label={
             <div className="flex items-center justify-between w-full">
-              <span>账号</span>
-              <span className="cursor-pointer primary">需要帮助？</span>
+              <span>手机号</span>
             </div>
           }
-          name="username"
+          name="managerPhone"
           rules={[{ required: true, message: '请输入账号' }]}
         >
           <Input placeholder="请输入账号" />
@@ -43,11 +45,10 @@ export default function Login() {
         <Form.Item
           label={
             <div className="flex items-center justify-between w-full">
-              <span>密码</span>
-              <span className="cursor-pointer primary">忘记密码？</span>
+              <span>令牌密码</span>
             </div>
           }
-          name="password"
+          name="accessToken"
           rules={[{ required: true, message: '请输入密码' }]}
         >
           <Input.Password placeholder="请输入密码" />
@@ -55,6 +56,12 @@ export default function Login() {
 
         <Form.Item className="mb-0" name="rememberMe" valuePropName="checked">
           <Checkbox>记住本账号</Checkbox>
+          <Link
+            className='opacity-75 cursor-pointer transition primary hover:opacity-100'
+            to="/user/forget"
+          >
+             忘记密码？
+          </Link>
         </Form.Item>
 
         <Form.Item>
@@ -67,7 +74,7 @@ export default function Login() {
           >
             立即登录
           </Button>
-          <p className="mt-4 text-gray-500">
+          {/* <p className="mt-4 text-gray-500">
             还没有账号？
             <Link
               className="opacity-75 cursor-pointer transition primary hover:opacity-100"
@@ -75,7 +82,7 @@ export default function Login() {
             >
               立即注册
             </Link>
-          </p>
+          </p> */}
         </Form.Item>
       </Form>
     </LoginWrapper>
@@ -86,18 +93,18 @@ const LoginWrapper = styled.div`
   width: 100%;
 `;
 
-const FormBar = styled.div`
+export const FormBar = styled.div`
       padding: 18px 0;
 
       h2 {
         margin-bottom: 4px;
-        color: #495057;
+        color: ${SECONDARY_GRAY};
         font-weight: bold;
         font-size: 1.2rem;
       }
 
       p {
-        color: $secondary;
+        color: ${GRAY};
         font-size: 0.8rem;
 }
 `

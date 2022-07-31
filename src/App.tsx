@@ -9,7 +9,8 @@ import type { Locale } from 'antd/es/locale-provider';
 import { MainLayout, UserLayout } from 'app/components/Layouts';
 import { NotFound } from 'app/components/Result';
 import { ILocalesProps } from 'app/components/Header/Locales';
-import { Register } from 'app/pages/Login';
+import { ForgetPassd, Register } from 'app/pages/Login';
+
 
 
 const App: React.FC = () => {
@@ -51,6 +52,7 @@ const App: React.FC = () => {
             <Route path="/" element={<MainLayout layout={layoutInfo} />} />
             <Route path='/user/login' element={<UserLayout />} />
             <Route path='/user/register' element={ <Register/>  } />
+            <Route path='/user/forget' element={ <ForgetPassd/>  } />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </ConfigProvider>

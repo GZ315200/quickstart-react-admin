@@ -6,6 +6,6 @@ type IUserProfileProps = {
 
 export default function UserProfile(props: IUserProfileProps) {
   return (
-    <div>{props.username}</div>
+    <div className='mt-4 text-gray-500 font-light'>{props.username}</div>
   )
 }

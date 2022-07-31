@@ -1,48 +1,53 @@
-import React, { lazy } from 'react';
+import React, { lazy, useState } from 'react';
 import styled from 'styled-components/macro';
 import logo from 'assets/images/logo48.png';
 import { APP_BG, PRIMARY } from 'app/styleConstants';
 import LoginHeader from './LoginHeader';
-
 import { Carousel } from 'antd';
-
-
 import userPlate1 from 'assets/images/user_plate_1.png';
 import userPlate2 from 'assets/images/user_plate_2.png';
 import userPlate3 from 'assets/images/user_plate_3.png';
+import { CarouselProps } from 'app/types';
+import { SHOP_HEADER_TITLE } from 'globalConstants';
 
 
 const Login = lazy(() => import('app/pages/Login/Login'));
 
+const itemArr = [
+  {
+    img: userPlate1,
+    title: 'Resources',
+    text: '在成熟度模型中，迈向REST的第一步就是引入资源的概念',
+  },
+  {
+    img: userPlate2,
+    title: 'HTTP Verbs',
+    text: 'REST倡导者建议使用所有HTTP动词，还试图从Web的成功之处来学习和借鉴',
+  },
+  {
+    img: userPlate3,
+    title: 'HATEOAS',
+    text: '超媒体控制的关键在于它告诉我们下一步我们可以做什么，以及操作所需资源的URI',
+  },
+];
+
+
 export default function UserLayout() {
+
+  const [carouselData, setcarouselData] = useState<CarouselProps[]>(itemArr);
+
   return (
     <LayoutWapper>
       <LeftWapper>
         <FormWapper>
-           <LoginHeader logo={logo} title={'一站式商家SASS管理系统'} />
-           <Login />
+          <LoginHeader logo={logo} title={SHOP_HEADER_TITLE} />
+          <Login />
         </FormWapper>
       </LeftWapper>
       <RightWapper>
-          <CarouselWapper>
+        <CarouselWapper>
           <Carousel autoplay centerMode draggable effect="fade">
-            {[
-              {
-                img: userPlate1,
-                title: 'Resources',
-                text: '在成熟度模型中，迈向REST的第一步就是引入资源的概念',
-              },
-              {
-                img: userPlate2,
-                title: 'HTTP Verbs',
-                text: 'REST倡导者建议使用所有HTTP动词，还试图从Web的成功之处来学习和借鉴',
-              },
-              {
-                img: userPlate3,
-                title: 'HATEOAS',
-                text: '超媒体控制的关键在于它告诉我们下一步我们可以做什么，以及操作所需资源的URI',
-              },
-            ].map(({ img, title, text }) => (
+            {carouselData.map(({ img, title, text }) => (
               <div key={title}>
                 <img alt="logo" className="w-full" src={img} />
                 <div className="pt-4 pb-10">
@@ -54,7 +59,7 @@ export default function UserLayout() {
               </div>
             ))}
           </Carousel>
-          </CarouselWapper>
+        </CarouselWapper>
       </RightWapper>
     </LayoutWapper>
   )
