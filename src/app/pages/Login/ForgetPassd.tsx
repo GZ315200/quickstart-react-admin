@@ -5,7 +5,8 @@ import { LeftOutlined } from '@ant-design/icons';
 import { FormBar } from './Login';
 import { Link } from 'react-router-dom';
 import { VERIFY_TIME } from 'globalConstants';
-import { isNumber, isUndef } from 'utils';
+import { isNumber } from 'utils';
+import { ResetPsd, UserReq } from 'app/types/user';
 
 
 export default function ForgetPassd() {
@@ -15,9 +16,12 @@ export default function ForgetPassd() {
     const [disable, setdisable] = useState<boolean>(false);
 
     const [form] = Form.useForm();
-    const handleLogin = (values) => {
-        console.log('======', values)
-    }
+
+    const handleLogin = async (
+        values: Pick<ResetPsd, 'managerPhone' | 'verifyCode'>
+      ) => {
+         
+      }
 
     const handleVerifycode = () => {
         settime(VERIFY_TIME);

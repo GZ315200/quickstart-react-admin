@@ -3,18 +3,45 @@ import React, { useState } from 'react'
 import { Button, Checkbox, Form, Input } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import { GRAY, SECONDARY_GRAY } from 'app/styleConstants';
+import { LoginUserResp, UserReq } from 'app/types/user';
+import { login } from 'app/api/user';
+import { setToken } from 'utils/auth';
+import { useAppDispatch  } from 'app/hooks';
+import { addLoginUser } from 'app/redux/userLoginSlice';
+import { setLoginState } from 'app/redux/appStateSlice';
 
 export default function Login() {
 
   let navigate = useNavigate();
+  let dispatch = useAppDispatch();
   const [form] = Form.useForm();
-
+  
   const [btnLoading, setBtnLoading] = useState(false);
 
-  const handleLogin = (values) => {
-      console.log('======', values)
-      
-
+  const handleLogin = async (
+    values: Pick<UserReq, 'managerPhone' | 'accessToken'> & {
+      rememberMe: boolean
+    }
+  ) => {
+    try {
+      // const { data } = await login(values);
+      const tokenExpires = values.rememberMe ? 30 : undefined
+      if (1) {
+        setToken('1245354'.replace("Bearer ", ""));
+      } else {
+        // setToken(data.token.replace("Bearer ", ""));
+      }
+      const data: LoginUserResp = {
+        info: {
+          userId: 1
+        }
+      }
+      dispatch(addLoginUser(data));
+      dispatch(setLoginState(true))
+      navigate("/");
+    } catch {
+      setBtnLoading(false)
+    }
   }
 
   return (

@@ -1,4 +1,4 @@
-import React, { Suspense, StrictMode } from 'react';
+import React, { Suspense, StrictMode, CSSProperties } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -7,18 +7,27 @@ import { Provider } from 'react-redux';
 import { store } from 'app/store';
 import { Spin } from 'antd';
 import { HelmetProvider } from 'react-helmet-async'
+import classNames from 'classnames';
 
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
+
+const styles: CSSProperties = {
+   lineHeight: '100px',
+   display: 'flex',
+   flexDirection: 'column',
+   alignItems: 'center',
+   marginTop: '50px'
+}
 
 root.render(
   <StrictMode>
     <Provider store={store}>
       <Suspense
         fallback={
-          <div className="suspense">
-            <Spin size="large" tip="页面加载中..." />
+          <div style={styles}>
+            <Spin tip="页面加载中..." />
           </div>
         }
       >

@@ -5,13 +5,13 @@ import { LoginUserResp } from "app/types/user";
 
 export interface UserloginState {
     info: {
-        userId: number;
-        wechat: string;
-        userType: number;
-        isSysUser: boolean;
-        isRoot: boolean;
-        managerPhone: string,
-        shopLogo: string
+        userId?: number;
+        wechat?: string;
+        userType?: number;
+        isSysUser?: boolean;
+        isRoot?: boolean;
+        managerPhone?: string,
+        shopLogo?: string
     }
 }
 
