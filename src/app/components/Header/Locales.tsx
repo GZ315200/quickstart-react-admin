@@ -4,6 +4,8 @@ import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, Space } from 'antd';
 import type { Locale } from 'antd/es/locale-provider';
 import useMemoizedFn from 'app/hooks/useMemoizedFn';
+import styled from 'styled-components/macro';
+
 
 export interface ILocalesProps {
     locale: Locale;
@@ -35,15 +37,23 @@ const Locales: React.FC<ILocalesProps> = (props: ILocalesProps) => {
     );
 
     return (
-        <div>
+        <Wapper>
             <Dropdown overlay={menu} onVisibleChange={props.handleVisibleChange} visible={props.visible}>
                 <Space>
                     选择语言
-                    <DownOutlined />
+                    <DownOutlined/>
                 </Space>
             </Dropdown>
-        </div>
+        </Wapper>
     )
 }
 
-export default Locales
+export default Locales;
+
+const Wapper = styled.div`
+    width: 80px;
+    height: 20px;
+    .anticon {
+        margin-bottom: 6px;
+    }
+`;
