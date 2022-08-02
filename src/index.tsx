@@ -7,8 +7,6 @@ import { Provider } from 'react-redux';
 import { store } from 'app/store';
 import { Spin } from 'antd';
 import { HelmetProvider } from 'react-helmet-async'
-import classNames from 'classnames';
-
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
