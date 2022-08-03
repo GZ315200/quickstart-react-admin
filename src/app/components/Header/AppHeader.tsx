@@ -11,10 +11,11 @@ import {
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'app/hooks';
-import { setSiderState } from 'app/redux/appStateSlice';
+import { setSiderState, setLoginState } from 'app/redux/appStateSlice';
 import { BLACK } from 'app/styleConstants';
 import Notice from './Notice';
 import { Space, Avatar, Dropdown, Menu } from 'antd';
+import { removeToken } from 'utils/auth';
 
 
 interface AppHeaderProps {
@@ -43,21 +44,28 @@ export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscree
   const dispatch = useAppDispatch();
 
   const avatarItems = [
-    { label: '个人中心', path: '/user/profile' },
-    { label: '退出登录', path: '/logout' }
+    { label: '个人中心', path: '/user/profile', key: 1 },
+    { label: '退出登录', path: '/user/login', key: 2 }
   ]
 
-  const routeToDest = (path) => {
-    navigate(path);
+  const routeToDest = (path, key) => {
+    if (key === 1) {
+      navigate(path)
+    }
+    if (key === 2) {
+      removeToken()
+      dispatch(setLoginState(false))
+      navigate(path)
+    }
   }
 
   const paneItem = () => (
     <Menu>
-      {avatarItems.map(({ label, path }) => (
+      {avatarItems.map(({ label, path, key }) => (
         <Menu.Item
-          key={label}
+          key={key}
           className="flex items-center py-0 cursor-pointer"
-          onClick={() => routeToDest(path)}
+          onClick={() => routeToDest(path, key)}
         >
           <div className="mr-4">{label}</div>
         </Menu.Item>
