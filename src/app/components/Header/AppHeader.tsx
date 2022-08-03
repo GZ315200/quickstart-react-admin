@@ -2,18 +2,19 @@
 
 import React, { CSSProperties } from 'react';
 import styled from 'styled-components';
-import logo from 'assets/images/shop.jpeg';
+import userAvatar from 'assets/images/shop.jpeg';
+import logo from 'assets/images/logo48.png';
 import Locales, { ILocalesProps } from './Locales';
-import Icon, {
+import {
   MenuFoldOutlined, MenuUnfoldOutlined,
-  FullscreenOutlined, FullscreenExitOutlined, SearchOutlined
+  FullscreenOutlined, FullscreenExitOutlined, UserOutlined
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'app/hooks';
-import { Input } from 'antd';
 import { setSiderState } from 'app/redux/appStateSlice';
-import { APP_BG } from 'app/styleConstants';
-
+import { BLACK } from 'app/styleConstants';
+import Notice from './Notice';
+import { Space, Avatar, Dropdown, Menu } from 'antd';
 
 
 interface AppHeaderProps {
@@ -23,10 +24,11 @@ interface AppHeaderProps {
   localeInfo: ILocalesProps
 }
 
-const IconStyles: CSSProperties = {
-  color: '#718096', 
-  fontSize: '25px'
+const iconStyles: CSSProperties = {
+  color: BLACK,
+  fontSize: '18px'
 }
+
 
 export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscreen, localeInfo }: AppHeaderProps) {
 
@@ -37,9 +39,31 @@ export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscree
 
   const ExpandIcon = iconGroup[isSiderOpened ? 'open' : 'close'];
   const ScreenIcon = isFullScreen ? FullscreenOutlined : FullscreenExitOutlined;
-  const navigate = useNavigate();
+  let navigate = useNavigate();
   const dispatch = useAppDispatch();
 
+  const avatarItems = [
+    { label: '个人中心', path: '/user/profile' },
+    { label: '退出登录', path: '/logout' }
+  ]
+
+  const routeToDest = (path) => {
+    navigate(path);
+  }
+
+  const paneItem = () => (
+    <Menu>
+      {avatarItems.map(({ label, path }) => (
+        <Menu.Item
+          key={label}
+          className="flex items-center py-0 cursor-pointer"
+          onClick={() => routeToDest(path)}
+        >
+          <div className="mr-4">{label}</div>
+        </Menu.Item>
+      ))}
+    </Menu>
+  )
 
   return (
     <HeaderWapper>
@@ -51,57 +75,65 @@ export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscree
         <div className="flex items-center">
           <ExpandIcon
             className="ml-2 mr-4 cursor-pointer"
-            style={IconStyles}
+            style={iconStyles}
             title={isSiderOpened ? '收起' : '展开'}
             onClick={() => {
               isSiderOpened ? dispatch(setSiderState(false)) : dispatch(setSiderState(true))
             }}
           />
-          <SearchInput>
+          {/* <SearchInput>
             <Input
               placeholder="搜索..."
-              prefix={<SearchOutlined size={16} />}
-              style={{ marginRight: '4px', color: '#718096' }}
+              prefix={<SearchOutlined style={iconStyles} />}
+              style={inputStyles}
             />
-          </SearchInput>
+          </SearchInput> */}
         </div>
       </HeaderRight>
 
       <div className="flex items-center h-full ml-auto">
 
-        <div className="flex items-center mr-6">
-          <ScreenIcon
-            className="mr-4 mt-2 cursor-pointer"
-            style={IconStyles}
-            onClick={switchFullscreen}
-          />
-          <Locales
-            locale={localeInfo.locale}
-            onChangeLocale={localeInfo.onChangeLocale}
-            visible={localeInfo.visible}
-            handleVisibleChange={localeInfo.handleVisibleChange}
-          />
+        <div className="flex items-center">
+          <Space size={10}>
+            <ScreenIcon
+              className="cursor-pointer"
+              style={iconStyles}
+              onClick={switchFullscreen}
+            />
+            <Notice iconStyle={iconStyles} />
+            <Locales
+              locale={localeInfo.locale}
+              onChangeLocale={localeInfo.onChangeLocale}
+              visible={localeInfo.visible}
+              handleVisibleChange={localeInfo.handleVisibleChange}
+              iconStyles={iconStyles}
+            />
+            <Dropdown overlay={paneItem} trigger={['click']}>
+              <Avatar className="cursor-pointer" src={userAvatar} icon={<UserOutlined />} />
+            </Dropdown>
+          </Space>
+
         </div>
       </div>
     </HeaderWapper>
   )
 }
 
-const SearchInput = styled.div`
-  display: flex;
-  align-items: center;
-  height: 38px;
-  background-color: ${APP_BG};
-  border-radius: 9999px;
-  & {
-    .ant-input-affix-wrapper,
-    .ant-input {
-      background: transparent;
-      border: none;
-      box-shadow: none;
-    }
-  }
-`
+// const SearchInput = styled.div`
+//   display: flex;
+//   align-items: center;
+//   height: 38px;
+//   background-color: ${APP_BG};
+//   border-radius: 9999px;
+//   & {
+//     .ant-input-affix-wrapper,
+//     .ant-input {
+//       background: transparent;
+//       border: none;
+//       box-shadow: none;
+//     }
+//   }
+// `
 
 const HeaderWapper = styled.div`
     display: flex;

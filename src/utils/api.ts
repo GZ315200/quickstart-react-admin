@@ -14,3 +14,7 @@ export const sysUserDel = `/delUser`
 export const getAllSysUser = `/getAllUser`
 export const checkSysUser = `/checkUser`
 
+/**
+ * notice
+ */
+export const noiceCount = '/noiceCount';

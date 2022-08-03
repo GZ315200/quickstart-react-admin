@@ -1,10 +1,9 @@
 
-import React from 'react';
-import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, Menu, Space } from 'antd';
+import React, { CSSProperties } from 'react';
+import { Dropdown, Menu } from 'antd';
 import type { Locale } from 'antd/es/locale-provider';
 import useMemoizedFn from 'app/hooks/useMemoizedFn';
-import styled from 'styled-components/macro';
+import { GlobalOutlined } from '@ant-design/icons';
 
 
 export interface ILocalesProps {
@@ -12,6 +11,7 @@ export interface ILocalesProps {
     onChangeLocale: (e) => any;
     visible: boolean;
     handleVisibleChange: (flag: boolean) => void;
+    iconStyles?: CSSProperties
 }
 
 const Locales: React.FC<ILocalesProps> = (props: ILocalesProps) => {
@@ -37,23 +37,10 @@ const Locales: React.FC<ILocalesProps> = (props: ILocalesProps) => {
     );
 
     return (
-        <Wapper>
-            <Dropdown overlay={menu} onVisibleChange={props.handleVisibleChange} visible={props.visible}>
-                <Space>
-                    选择语言
-                    <DownOutlined/>
-                </Space>
-            </Dropdown>
-        </Wapper>
+        <Dropdown overlay={menu} onVisibleChange={props.handleVisibleChange} visible={props.visible}>
+                <GlobalOutlined style={props.iconStyles} />
+        </Dropdown>
     )
 }
 
 export default Locales;
-
-const Wapper = styled.div`
-    width: 80px;
-    height: 20px;
-    .anticon {
-        margin-bottom: 6px;
-    }
-`;
