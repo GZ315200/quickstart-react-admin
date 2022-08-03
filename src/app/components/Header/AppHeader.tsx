@@ -44,28 +44,28 @@ export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscree
   const dispatch = useAppDispatch();
 
   const avatarItems = [
-    { label: '个人中心', path: '/user/profile', key: 1 },
-    { label: '退出登录', path: '/user/login', key: 2 }
+    { label: '个人中心', navPath: '/user/profile', key: 1 },
+    { label: '退出登录', navPath: '/user/login', key: 2 }
   ]
 
-  const routeToDest = (path, key) => {
+  const routeToDest = (navPath, key) => {
     if (key === 1) {
-      navigate(path)
+      navigate(navPath)
     }
     if (key === 2) {
       removeToken()
       dispatch(setLoginState(false))
-      navigate(path)
+      navigate(navPath)
     }
   }
 
   const paneItem = () => (
     <Menu>
-      {avatarItems.map(({ label, path, key }) => (
+      {avatarItems.map(({ label, navPath, key }) => (
         <Menu.Item
           key={key}
           className="flex items-center py-0 cursor-pointer"
-          onClick={() => routeToDest(path, key)}
+          onClick={() => routeToDest(navPath, key)}
         >
           <div className="mr-4">{label}</div>
         </Menu.Item>
@@ -102,7 +102,7 @@ export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscree
       <div className="flex items-center h-full ml-auto">
 
         <div className="flex items-center">
-          <Space size={10}>
+          <Space size={14}>
             <ScreenIcon
               className="cursor-pointer"
               style={iconStyles}
@@ -116,7 +116,7 @@ export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscree
               handleVisibleChange={localeInfo.handleVisibleChange}
               iconStyles={iconStyles}
             />
-            <Dropdown overlay={paneItem} trigger={['click']}>
+            <Dropdown overlay={paneItem} trigger={['click']} >
               <Avatar className="cursor-pointer" src={userAvatar} icon={<UserOutlined />} />
             </Dropdown>
           </Space>

@@ -49,7 +49,7 @@ export default function Notice({ iconStyle }) {
   return (
     <Badge dot>
       <Dropdown overlay={notice}>
-        <AlertOutlined className="cursor-pointer" style={iconStyle} onClick={routeToNotice} />
+        <AlertOutlined className="cursor-pointer" style={iconStyle} />
       </Dropdown>
     </Badge>
   )
