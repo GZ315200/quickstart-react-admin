@@ -13,7 +13,7 @@ const initialState: AppState = {
     isHeaderFixed: true,
     isLogin: !!getToken(),
     routes,
-    lang: zhCN
+    lang: zhCN.locale
   }
 
 export const appStateSlice = createSlice({
@@ -32,7 +32,7 @@ export const appStateSlice = createSlice({
         setRouteHub(state, action: PayloadAction<RouteItem[]>) {
             state.routes = action.payload;
         },
-        setLang(state, action: PayloadAction<Locale>) {
+        setLang(state, action: PayloadAction<string>) {
             state.lang = action.payload
         }
     }

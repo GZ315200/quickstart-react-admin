@@ -30,12 +30,12 @@ const App: React.FC = () => {
     if (e.key === 'en') {
       setLocale(enUS);
       moment.locale('en');
-      dispatch(setLang(enUS))
+      dispatch(setLang(enUS.locale))
     }
     if (e.key === 'cn') {
       setLocale(zhCN)
       moment.locale('zh-cn');
-      dispatch(setLang(zhCN))
+      dispatch(setLang(zhCN.locale))
     }
     setvisible(false);
   };

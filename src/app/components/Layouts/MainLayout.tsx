@@ -1,15 +1,18 @@
 import { useAppDispatch, useAppSelector } from 'app/hooks';
-import React, { useEffect, useState }  from 'react';
+import React, { useEffect, useState } from 'react';
 import { FullScreen, FullScreenHandle, useFullScreenHandle } from 'react-full-screen';
 import { useNavigate } from 'react-router-dom';
 import { AppHeader } from '../Header';
 import { ILocalesProps } from '../Header/Locales';
 import { setSiderState } from 'app/redux/appStateSlice';
 import styled from 'styled-components';
-import _ from 'classnames';
+import { Layout, Menu } from 'antd';
+import { AppSider } from '../SiderBar';
+const { Header, Content, Footer, Sider } = Layout;
+
 
 export interface IMainLayoutProps {
-   layout: ILocalesProps
+  layout: ILocalesProps
 }
 
 export default function MainLayout(props: IMainLayoutProps) {
@@ -20,6 +23,7 @@ export default function MainLayout(props: IMainLayoutProps) {
   let navigate = useNavigate();
   const handle: FullScreenHandle = useFullScreenHandle()
   const [screen, setScreen] = useState<boolean>(handle.active)
+  const [collapsed, setCollapsed] = useState<boolean>(false);
 
 
   useEffect(() => {
@@ -50,32 +54,47 @@ export default function MainLayout(props: IMainLayoutProps) {
       handle.exit()
     }
   }
-  
+
   return (
     <FullScreen handle={handle} onChange={setScreen}>
-      <HeaderContaner>
-          <AppHeader 
-              isFullScreen={screen}
-              isSiderOpened={isSiderOpened}
-              switchFullscreen={switchFullscreen}
-              localeInfo={props.layout}
-          />
-      </HeaderContaner>
+      <Layout>
+          <Sider>
+              <AppSider isSiderOpened={isSiderOpened} />
+              
+          </Sider>
+        <Layout>
+          <AntHeaderWapper>
+            <AppHeader
+            isSiderOpened 
+            isFullScreen 
+            switchFullscreen={switchFullscreen} 
+            localeInfo={props.layout}  
+            />
+          </AntHeaderWapper>
+          <Content>Content</Content>
+        </Layout>
+      </Layout>
     </FullScreen>
   )
 }
 
+const AntSiderWapper = styled(Sider).attrs({
+  type: "password",
+})`
+  // similarly, border will override Input's border
+  height: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+`;
 
-const HeaderContaner = styled.div`
+const AntHeaderWapper = styled(Header)`
       position: fixed;
       top: 0;
       left: 0;
       z-index: 999;
       width: 100%;
-      height: 70px;
+      height: 80px;
       padding-right: 1.8rem;
-      background: #fff;
-`
-const SiderBarWapper = styled.div`
-  
+      --tw-bg-opacity: 1;
+      background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
 `

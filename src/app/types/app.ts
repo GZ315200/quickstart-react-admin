@@ -11,6 +11,6 @@ export interface AppState {
     /** 权限路由 */
     routes: RouteItem[];
     /**语言 */
-    lang: Locale
+    lang: string
 }
   
