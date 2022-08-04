@@ -1,48 +1,48 @@
-import { lazy } from 'react';
+import  React, { lazy } from 'react';
 import type { RouteItem } from 'utils/types';
 import { LineChartOutlined, AccountBookOutlined, UserOutlined } from '@ant-design/icons';
+
 const DashboardHome = lazy(() => import('app/pages/Dashboard/DashboardHome'));
 const SysAuthUser = lazy(() => import('app/pages/SysAuthUser/SysAuthUserList'));
 const WeappUser = lazy(() => import('app/pages/WeAppUser/WeAppUserList'));
 const Product = lazy(() => import('app/pages/Product/ProductList'));
-export type RouteHub = RouteItem[];
 
-const routes: RouteHub = [
+const routes: RouteItem[] = [
     {
       title: '数据分析',
-      icon: LineChartOutlined,
+      icon: <LineChartOutlined />,
       children: [
         {
-          path: '/index',
           title: '系统仪表盘',
-          component: DashboardHome,
+          path: '/index',
+          component: <DashboardHome />
         }
       ],
     },
     {
       title: '产品管理',
-      icon: AccountBookOutlined,
+      icon: <AccountBookOutlined />,
       children: [
         {
           path: '/productlist',
           title: '产品列表',
-          component: Product,
+          component: <Product />,
         },
       ],
     },
     {
         title: '用户管理',
-        icon: UserOutlined,
+        icon: <UserOutlined />,
         children: [
           {
             path: '/sysAuthUser',
             title: '系统用户列表',
-            component: SysAuthUser,
+            component: <SysAuthUser />,
           },
           {
             path: '/weAppUser',
             title: '小程序用户列表',
-            component: WeappUser,
+            component: <WeappUser />,
           },
         ],
       }

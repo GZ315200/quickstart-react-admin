@@ -1,8 +1,9 @@
 import { AppState } from "app/types/app";
 import { getToken } from "utils/auth";
-import routes, { RouteHub } from "routes";
+import routes from "routes";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
+import { RouteItem } from "utils/types";
 
 
 const initialState: AppState = {
@@ -25,7 +26,7 @@ export const appStateSlice = createSlice({
         setHeaderState(state, action: PayloadAction<boolean>) {
             state.isHeaderFixed = action.payload;
         },
-        setRouteHub(state, action: PayloadAction<RouteHub>) {
+        setRouteHub(state, action: PayloadAction<RouteItem[]>) {
             state.routes = action.payload;
         }
     }

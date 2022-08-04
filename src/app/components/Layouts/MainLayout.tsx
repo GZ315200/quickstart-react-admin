@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from 'app/hooks';
 import React, { useEffect, useState }  from 'react';
 import { FullScreen, FullScreenHandle, useFullScreenHandle } from 'react-full-screen';
 import { useNavigate } from 'react-router-dom';
-import { AppHeader, Locales } from '../Header';
+import { AppHeader } from '../Header';
 import { ILocalesProps } from '../Header/Locales';
 import { setSiderState } from 'app/redux/appStateSlice';
 import styled from 'styled-components';
@@ -75,5 +75,7 @@ const HeaderContaner = styled.div`
       height: 70px;
       padding-right: 1.8rem;
       background: #fff;
-
+`
+const SiderBarWapper = styled.div`
+  
 `

@@ -102,7 +102,7 @@ export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscree
       <div className="flex items-center h-full ml-auto">
 
         <div className="flex items-center">
-          <Space size={14}>
+          <Space size={15}>
             <ScreenIcon
               className="cursor-pointer"
               style={iconStyles}

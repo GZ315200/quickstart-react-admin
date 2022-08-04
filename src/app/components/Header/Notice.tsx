@@ -4,6 +4,8 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AlertOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types'
+import styled from 'styled-components';
+
 
 export default function Notice({ iconStyle }) {
   
@@ -33,14 +35,14 @@ export default function Notice({ iconStyle }) {
   const notice = () => (
     <Menu>
       {noticeItems.map(({ label, count }) => (
-        <Menu.Item
+        <AppMenuItem
           key={label}
-          className="flex items-center py-0 cursor-pointer"
+          className="flex items-center cursor-pointer"
           onClick={routeToNotice}
         >
-          <div className="mr-4">{label}</div>
-          <Badge className="ml-auto" count={count} size="small" />
-        </Menu.Item>
+          <div className="mr-5">{label}</div>
+          <Badge count={1} offset={[60, -20]} size="small" />
+        </AppMenuItem>
       ))}
     </Menu>
   )
@@ -54,6 +56,12 @@ export default function Notice({ iconStyle }) {
     </Badge>
   )
 }
+
+const AppMenuItem = styled(Menu.Item)`
+  line-height: 12px;
+`
+
+
 
 Notice.propTypes = {
     iconStyle: PropTypes.objectOf(PropTypes.any),

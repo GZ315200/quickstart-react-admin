@@ -1,4 +1,4 @@
-import { RouteHub } from "routes"
+import { RouteItem } from "utils/types";
 
 export interface AppState {
     /** 侧边栏是否为展开状态 */
@@ -8,6 +8,6 @@ export interface AppState {
     /** 用户是否已登录 */
     isLogin: boolean;
     /** 权限路由 */
-    routes: RouteHub;
+    routes: RouteItem[];
 }
   

@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 /**
  * global types
  */
@@ -12,9 +14,9 @@ export interface RouteItem {
   /** 显示在侧边栏的名称 */
   title: string
   /** 页面路由组件 */
-  component?: React.LazyExoticComponent<() => JSX.Element> | JSX.Element
+  component?: React.ReactNode,
   /** 图标 */
-  icon?
+  icon?: React.ReactNode
   /** 路径 */
   path?: string
   /** 子菜单路由 */
