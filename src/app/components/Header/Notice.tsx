@@ -40,7 +40,7 @@ export default function Notice({ iconStyle }) {
           className="flex items-center cursor-pointer"
           onClick={routeToNotice}
         >
-          <div className="mr-5">{label}</div>
+          <div className="mr-5 mt-3 leading-3">{label}</div>
           <Badge count={1} offset={[60, -20]} size="small" />
         </AppMenuItem>
       ))}

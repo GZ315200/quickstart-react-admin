@@ -4,6 +4,8 @@ import routes from "routes";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
 import { RouteItem } from "utils/types";
+import zhCN from 'antd/es/locale/zh_CN';
+import { Locale } from "antd/es/locale-provider";
 
 
 const initialState: AppState = {
@@ -11,6 +13,7 @@ const initialState: AppState = {
     isHeaderFixed: true,
     isLogin: !!getToken(),
     routes,
+    lang: zhCN
   }
 
 export const appStateSlice = createSlice({
@@ -28,11 +31,14 @@ export const appStateSlice = createSlice({
         },
         setRouteHub(state, action: PayloadAction<RouteItem[]>) {
             state.routes = action.payload;
+        },
+        setLang(state, action: PayloadAction<Locale>) {
+            state.lang = action.payload
         }
     }
 });
 
-export const { setLoginState, setSiderState, setHeaderState, setRouteHub } = appStateSlice.actions;
+export const { setLoginState, setSiderState, setHeaderState, setRouteHub, setLang } = appStateSlice.actions;
 export const selectAppState = (state: RootState) => state.appState
 
 export default appStateSlice.reducer;

@@ -1,3 +1,4 @@
+import { Locale } from "antd/es/locale-provider";
 import { RouteItem } from "utils/types";
 
 export interface AppState {
@@ -9,5 +10,7 @@ export interface AppState {
     isLogin: boolean;
     /** 权限路由 */
     routes: RouteItem[];
+    /**语言 */
+    lang: Locale
 }
   

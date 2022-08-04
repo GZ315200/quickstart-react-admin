@@ -10,6 +10,8 @@ import { MainLayout, UserLayout } from 'app/components/Layouts';
 import { NotFound } from 'app/components/Result';
 import { ILocalesProps } from 'app/components/Header/Locales';
 import { ForgetPassd, Register } from 'app/pages/Login';
+import { useAppDispatch } from 'app/hooks';
+import { setLang } from 'app/redux/appStateSlice';
 
 
 
@@ -18,7 +20,7 @@ const App: React.FC = () => {
   const [visible, setvisible] = useState<boolean>(false);
 
   // const isLogin = useAppSelector(({ appState }) => appState.isLogin);
-
+  let dispatch = useAppDispatch();
 
   const handleVisibleChange = (flag: boolean) => {
     setvisible(flag);
@@ -28,10 +30,12 @@ const App: React.FC = () => {
     if (e.key === 'en') {
       setLocale(enUS);
       moment.locale('en');
+      dispatch(setLang(enUS))
     }
     if (e.key === 'cn') {
       setLocale(zhCN)
       moment.locale('zh-cn');
+      dispatch(setLang(zhCN))
     }
     setvisible(false);
   };
