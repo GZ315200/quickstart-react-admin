@@ -1,6 +1,7 @@
 
 
 import React, { CSSProperties } from 'react';
+import logo from 'assets/images/logo48.png';
 import styled from 'styled-components';
 import userAvatar from 'assets/images/shop.jpeg';
 import Locales, { ILocalesProps } from './Locales';
@@ -15,6 +16,7 @@ import { BLACK } from 'app/styleConstants';
 import Notice from './Notice';
 import { Space, Avatar, Dropdown, Menu } from 'antd';
 import { removeToken } from 'utils/auth';
+import { SHOP_HEADER_TITLE } from 'globalConstants';
 
 
 interface AppHeaderProps {
@@ -74,8 +76,22 @@ export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscree
 
   return (
     <HeaderWapper>
-      <div className="flex items-center h-full ml-auto">
-
+       <div className="brand-box">
+        <img alt="logo" className="brand-box__logo" src={logo} />
+        <div className="brand-box__text">{SHOP_HEADER_TITLE}</div>
+      </div>
+      <div className="header-right">
+        <div className="flex items-center">
+          <ExpandIcon
+            className="ml-2 mr-4 cursor-pointer"
+            style={iconStyles}
+            title={isSiderOpened ? '收起' : '展开'}
+            onClick={() => {
+              isSiderOpened ? dispatch(setSiderState(false)) : dispatch(setSiderState(true))
+            }}
+          />
+        </div>
+        <div className="flex items-center h-full ml-auto">
         <div className="flex items-center">
           <Space size={15}>
             <ScreenIcon
@@ -95,31 +111,16 @@ export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscree
               <Avatar className="cursor-pointer" src={userAvatar} icon={<UserOutlined />} />
             </Dropdown>
           </Space>
-
         </div>
+      </div>
       </div>
     </HeaderWapper>
   )
 }
 
-// const SearchInput = styled.div`
-//   display: flex;
-//   align-items: center;
-//   height: 38px;
-//   background-color: ${APP_BG};
-//   border-radius: 9999px;
-//   & {
-//     .ant-input-affix-wrapper,
-//     .ant-input {
-//       background: transparent;
-//       border: none;
-//       box-shadow: none;
-//     }
-//   }
-// `
 
 const HeaderWapper = styled.div`
-    display: flex;
-    align-items: center;
-    height: 100%;
+     display: flex;
+     align-items: center;
+     height: 100%;
 `

@@ -1,3 +1,4 @@
+import './MainLayout.less';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import React, { useEffect, useState } from 'react';
 import { FullScreen, FullScreenHandle, useFullScreenHandle } from 'react-full-screen';
@@ -5,11 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import { AppHeader } from '../Header';
 import { ILocalesProps } from '../Header/Locales';
 import { setSiderState } from 'app/redux/appStateSlice';
-import styled from 'styled-components';
-import { Layout, Menu } from 'antd';
 import { AppSider } from '../SiderBar';
-const { Header, Content, Footer, Sider } = Layout;
-
+import _ from 'classnames';
+import { AppFooter } from '../Footer';
+import AppContent from '../AppContent';
 
 export interface IMainLayoutProps {
   layout: ILocalesProps
@@ -19,12 +19,11 @@ export default function MainLayout(props: IMainLayoutProps) {
   const dispatch = useAppDispatch();
   const isLogin = useAppSelector(({ appState }) => appState.isLogin);
   const isSiderOpened = useAppSelector(({ appState }) => appState.isSiderOpened);
+  const routes = useAppSelector(({appState}) => appState.routes);
 
   let navigate = useNavigate();
-  const handle: FullScreenHandle = useFullScreenHandle()
-  const [screen, setScreen] = useState<boolean>(handle.active)
-  const [collapsed, setCollapsed] = useState<boolean>(false);
-
+  const handle: FullScreenHandle = useFullScreenHandle();
+  const [screen, setScreen] = useState<boolean>(handle.active);
 
   useEffect(() => {
     if (!isLogin) {
@@ -57,44 +56,27 @@ export default function MainLayout(props: IMainLayoutProps) {
 
   return (
     <FullScreen handle={handle} onChange={setScreen}>
-      <Layout>
-          <Sider>
-              <AppSider isSiderOpened={isSiderOpened} />
-              
-          </Sider>
-        <Layout>
-          <AntHeaderWapper>
+        <aside className={_('app-aside', { 'menu-close': !isSiderOpened })}>
+          <AppSider isSiderOpened={isSiderOpened} routes={routes} />
+        </aside>
+        <main className={_('app-main', { 'menu-close': !isSiderOpened })}>
+          <header className={_('app-header', { 'menu-close': !isSiderOpened })}>
             <AppHeader
-            isSiderOpened 
-            isFullScreen 
-            switchFullscreen={switchFullscreen} 
-            localeInfo={props.layout}  
+              isSiderOpened={isSiderOpened}
+              isFullScreen={screen}
+              switchFullscreen={switchFullscreen}
+              localeInfo={props.layout}
             />
-          </AntHeaderWapper>
-          <Content>Content</Content>
-        </Layout>
-      </Layout>
+          </header>
+
+        <section className="app-section">
+          <AppContent routes={routes} />
+        </section>
+
+        <footer className="app-footer">
+          <AppFooter />
+        </footer>
+      </main>
     </FullScreen>
   )
 }
-
-const AntSiderWapper = styled(Sider).attrs({
-  type: "password",
-})`
-  // similarly, border will override Input's border
-  height: 100%;
-  --tw-bg-opacity: 1;
-  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
-`;
-
-const AntHeaderWapper = styled(Header)`
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 999;
-      width: 100%;
-      height: 80px;
-      padding-right: 1.8rem;
-      --tw-bg-opacity: 1;
-      background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
-`
