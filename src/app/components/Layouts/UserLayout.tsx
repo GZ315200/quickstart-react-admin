@@ -1,4 +1,5 @@
 import React, { lazy, useEffect, useState } from 'react';
+import './UserLayout.less'
 import styled from 'styled-components/macro';
 import logo from 'assets/images/logo48.png';
 import { APP_BG, PRIMARY } from 'app/styleConstants';
@@ -48,15 +49,15 @@ export default function UserLayout() {
   
 
   return (
-    <LayoutWapper>
-      <LeftWapper>
-        <FormWapper>
+    <div className="user-layout">
+      <div className="user-layout__left">
+        <div className="form-area">
           <LoginHeader logo={logo} title={SHOP_HEADER_TITLE} />
           <Login />
-        </FormWapper>
-      </LeftWapper>
-      <RightWapper>
-        <CarouselWapper>
+        </div>
+      </div>
+      <div className="user-layout__right">
+        <div className="wapper">
           <Carousel autoplay centerMode draggable effect="fade">
             {carouselData.map(({ img, title, text }) => (
               <div key={title}>
@@ -70,62 +71,8 @@ export default function UserLayout() {
               </div>
             ))}
           </Carousel>
-        </CarouselWapper>
-      </RightWapper>
-    </LayoutWapper>
+        </div>
+      </div>
+    </div>
   )
 }
-
-
-const LayoutWapper = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color:  ${props => props.inputColor || APP_BG};
-`;
-
-const LeftWapper = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    min-height: 100vh;
-    background: white;
-`;
-
-const FormWapper = styled.div`
-      margin-right: 90px;
-      margin-left: auto;
-      @media (max-width: 1540px) {
-        margin-right: auto;
-      }
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      justify-content: center;
-      width: 22rem;
-`;
-
-const RightWapper = styled.div`
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-`;
-
-
-const CarouselWapper = styled.div`
-      width: 400px;
-      .slick-dots {
-      li {
-        button {
-          background: ${APP_BG};
-          opacity: 0.4;
-        }
-
-        &.slick-active button {
-          background: ${PRIMARY};
-        }
-      }
-    }
-`;

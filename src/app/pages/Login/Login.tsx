@@ -1,4 +1,3 @@
-import styled from 'styled-components/macro';
 import React, { useState } from 'react'
 import { Button, Checkbox, Form, Input } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
@@ -6,7 +5,7 @@ import { GRAY, SECONDARY_GRAY } from 'app/styleConstants';
 import { LoginUserResp, UserReq } from 'app/types/user';
 import { login } from 'app/api/user';
 import { setToken } from 'utils/auth';
-import { useAppDispatch  } from 'app/hooks';
+import { useAppDispatch } from 'app/hooks';
 import { addLoginUser } from 'app/redux/userLoginSlice';
 import { setLoginState } from 'app/redux/appStateSlice';
 
@@ -15,7 +14,7 @@ export default function Login() {
   let navigate = useNavigate();
   let dispatch = useAppDispatch();
   const [form] = Form.useForm();
-  
+
   const [btnLoading, setBtnLoading] = useState(false);
 
   const handleLogin = async (
@@ -45,12 +44,12 @@ export default function Login() {
   }
 
   return (
-    <LoginWrapper>
-       <FormBar>
-          <h2>登录系统</h2>
-          <p>使用手机号和令牌密码登录本系统</p>
-       </FormBar>
-       <Form
+    <div className="login-form">
+      <div className="form-bar">
+        <h2 className="title">登录系统</h2>
+        <p className="desc">使用账号和密码登录本系统</p>
+      </div>
+      <Form
         hideRequiredMark
         form={form}
         layout="vertical"
@@ -87,7 +86,7 @@ export default function Login() {
             className='opacity-75 cursor-pointer transition primary hover:opacity-100'
             to="/user/forget"
           >
-             忘记密码？
+            忘记密码？
           </Link>
         </Form.Item>
 
@@ -112,26 +111,8 @@ export default function Login() {
           </p> */}
         </Form.Item>
       </Form>
-    </LoginWrapper>
+    </div>
   )
 }
 
-const LoginWrapper = styled.div`
-  width: 100%;
-`;
 
-export const FormBar = styled.div`
-      padding: 18px 0;
-
-      h2 {
-        margin-bottom: 4px;
-        color: ${SECONDARY_GRAY};
-        font-weight: bold;
-        font-size: 1.2rem;
-      }
-
-      p {
-        color: ${GRAY};
-        font-size: 0.8rem;
-}
-`

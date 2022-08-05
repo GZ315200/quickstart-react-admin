@@ -1,0 +1,98 @@
+@import url('../../../styles/variables.less');
+
+.layoutMargin() {
+    margin-right: 90px;
+    margin-left: auto;
+    @media (max-width: 1540px) {
+        margin-right: auto;
+    }
+
+    @media (max-width: 720px) {
+        margin-left: 280px;
+    }
+}
+
+.user-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: @app-bg;
+
+    &__left {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-height: 100vh;
+        background: white;
+        .layoutMargin();
+     
+        .form-area {
+             .layoutMargin();
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: center;
+            width: 22rem;
+
+            .login-form {
+                label.ant-form-item-required {
+                    width: 100%;
+                }
+            }
+
+            .form-bar {
+                padding: 18px 0;
+
+                .title {
+                    margin-bottom: 4px;
+                    color: #495057;
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                }
+
+                .desc {
+                    color: @secondary;
+                    font-size: 0.8rem;
+                }
+            }
+
+            .ant-form-item-label {
+                padding-bottom: 5px;
+
+                .ant-form-item-required {
+                    height: auto;
+                }
+            }
+        }
+
+        .footer {
+            .layoutMargin();
+            padding: 20px 0;
+            color: @secondary;
+        }
+    }
+
+    &__right {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+
+        .wapper {
+            width: 400px;
+            .slick-dots {
+                li {
+                    button {
+                        background: @app-bg;
+                        opacity: 0.4;
+                    }
+
+                    &.slick-active button {
+                        background: @primary;
+                    }
+                }
+            }
+        }
+    }
+}

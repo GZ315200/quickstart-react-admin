@@ -2,11 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components/macro';
 import { Button, Form, Input } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
-import { FormBar } from './Login';
 import { Link } from 'react-router-dom';
 import { VERIFY_TIME } from 'globalConstants';
 import { isNumber } from 'utils';
-import { ResetPsd, UserReq } from 'app/types/user';
+import { ResetPsd } from 'app/types/user';
 
 
 export default function ForgetPassd() {
@@ -19,9 +18,9 @@ export default function ForgetPassd() {
 
     const handleLogin = async (
         values: Pick<ResetPsd, 'managerPhone' | 'verifyCode'>
-      ) => {
-         
-      }
+    ) => {
+
+    }
 
     const handleVerifycode = () => {
         settime(VERIFY_TIME);
@@ -49,10 +48,10 @@ export default function ForgetPassd() {
                 <LeftOutlined className='mr-1 mt-1' />
                 返回登录
             </Link>
-            <FormBar>
-                <h2>重置令牌密码</h2>
-                <p>使用手机号和验证码重置令牌密码, 重置的密码将发送至该手机号</p>
-            </FormBar>
+            <div className="form-bar">
+                <h2 className="title">重置令牌密码</h2>
+                <p className="desc">使用手机号和验证码重置令牌密码, 重置的密码将发送至该手机号</p>
+            </div>
             <Form
                 hideRequiredMark
                 form={form}
@@ -101,7 +100,7 @@ export default function ForgetPassd() {
 }
 
 const Wrapper = styled.div`
-  width: 29%;
+  width: 30%;
   margin: 20px;
 `;
 
