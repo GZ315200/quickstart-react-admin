@@ -41,7 +41,7 @@ export default function Notice({ iconStyle }) {
           onClick={routeToNotice}
         >
           <div className="mr-5 mt-3 leading-3">{label}</div>
-          <Badge count={1} offset={[60, -20]} size="small" />
+          <Badge count={count} offset={[60, -20]} size="small" />
         </AppMenuItem>
       ))}
     </Menu>
@@ -50,7 +50,7 @@ export default function Notice({ iconStyle }) {
 
   return (
     <Badge dot>
-      <Dropdown overlay={notice}>
+      <Dropdown overlay={notice} trigger={['click']}>
         <AlertOutlined className="cursor-pointer" style={iconStyle} />
       </Dropdown>
     </Badge>

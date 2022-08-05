@@ -37,7 +37,7 @@ const Locales: React.FC<ILocalesProps> = (props: ILocalesProps) => {
     );
 
     return (
-        <Dropdown overlay={menu} onVisibleChange={props.handleVisibleChange} visible={props.visible}>
+        <Dropdown overlay={menu} onVisibleChange={props.handleVisibleChange} trigger={['click']} visible={props.visible}>
                 <GlobalOutlined style={props.iconStyles} />
         </Dropdown>
     )
