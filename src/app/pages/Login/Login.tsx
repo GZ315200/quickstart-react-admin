@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Checkbox, Form, Input } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
-import { GRAY, SECONDARY_GRAY } from 'app/styleConstants';
 import { LoginUserResp, UserReq } from 'app/types/user';
 import { login } from 'app/api/user';
 import { setToken } from 'utils/auth';

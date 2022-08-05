@@ -1,4 +1,3 @@
-import { Locale } from "antd/es/locale-provider";
 import { RouteItem } from "utils/types";
 
 export interface AppState {

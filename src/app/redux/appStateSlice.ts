@@ -5,7 +5,6 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
 import { RouteItem } from "utils/types";
 import zhCN from 'antd/es/locale/zh_CN';
-import { Locale } from "antd/es/locale-provider";
 
 
 const initialState: AppState = {

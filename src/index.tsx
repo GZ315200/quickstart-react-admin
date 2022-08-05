@@ -1,6 +1,7 @@
-import React, { Suspense, StrictMode, CSSProperties } from 'react';
+import React, { Suspense, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
+import './scrollbar';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
@@ -11,21 +12,14 @@ import { HelmetProvider } from 'react-helmet-async'
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
-const styles: CSSProperties = {
-   lineHeight: '100px',
-   display: 'flex',
-   flexDirection: 'column',
-   alignItems: 'center',
-   marginTop: '50px'
-}
 
 root.render(
   <StrictMode>
     <Provider store={store}>
       <Suspense
         fallback={
-          <div style={styles}>
-            <Spin tip="页面加载中..." />
+          <div className="suspense">
+            <Spin size="large" tip="页面加载中..."/>
           </div>
         }
       >

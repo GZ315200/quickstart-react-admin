@@ -1,8 +1,6 @@
 import React, { lazy, useEffect, useState } from 'react';
 import './UserLayout.less'
-import styled from 'styled-components/macro';
 import logo from 'assets/images/logo48.png';
-import { APP_BG, PRIMARY } from 'app/styleConstants';
 import LoginHeader from './LoginHeader';
 import { Carousel } from 'antd';
 import userPlate1 from 'assets/images/user_plate_1.png';
