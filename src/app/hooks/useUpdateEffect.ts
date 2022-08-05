@@ -5,5 +5,4 @@
 
 import { useEffect } from 'react';
 import { createUseUpdateEffeact } from './createUseUpdateEffeact'
-
 export default createUseUpdateEffeact(useEffect);

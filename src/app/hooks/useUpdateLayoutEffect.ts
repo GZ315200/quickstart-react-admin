@@ -6,4 +6,4 @@
 import { useLayoutEffect } from 'react';
 import { createUseUpdateEffeact } from './createUseUpdateEffeact';
 
-export default createUseUpdateEffeact(useLayoutEffect);
+export default createUseUpdateEffeact(useLayoutEffect);;
