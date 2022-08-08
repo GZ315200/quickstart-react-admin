@@ -9,7 +9,8 @@ export interface LoginUserResp {
         isRoot?: boolean;
         managerPhone?: string,
         shopLogo?: string,
-        loginTime?: string
+        loginTime?: string,
+        permission?: Array<string>
     }
 }
 

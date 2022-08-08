@@ -28,7 +28,7 @@ export const appStateSlice = createSlice({
         setHeaderState(state, action: PayloadAction<boolean>) {
             state.isHeaderFixed = action.payload;
         },
-        setRouteHub(state, action: PayloadAction<RouteItem[]>) {
+        setRouteHub(state, action: PayloadAction<Array<RouteItem>>) {
             state.routes = action.payload;
         },
         setLang(state, action: PayloadAction<string>) {

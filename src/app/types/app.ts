@@ -8,7 +8,7 @@ export interface AppState {
     /** 用户是否已登录 */
     isLogin: boolean;
     /** 权限路由 */
-    routes: RouteItem[];
+    routes: Array<RouteItem>;
     /**语言 */
     lang: string
 }

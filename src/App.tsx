@@ -49,7 +49,7 @@ const App: React.FC = () => {
 
 
   return (
-    <div className="app">
+    <div className="not-sr-only">
       <BrowserRouter>
         <ConfigProvider locale={locale}>
           <Routes>

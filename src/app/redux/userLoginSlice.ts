@@ -11,7 +11,8 @@ export interface UserloginState {
         isSysUser?: boolean;
         isRoot?: boolean;
         managerPhone?: string,
-        shopLogo?: string
+        shopLogo?: string,
+        permissions?: Array<string>
     }
 }
 
@@ -24,6 +25,7 @@ const initialState: UserloginState = {
         isRoot: false,
         managerPhone: '',
         shopLogo: '',
+        permissions: []
     }
 };
 
