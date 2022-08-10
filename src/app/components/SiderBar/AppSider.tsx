@@ -1,11 +1,6 @@
 
-import React, { CSSProperties, useEffect, useState } from 'react';
-import { BLACK } from 'app/styleConstants';
-import {
-  MenuFoldOutlined, MenuUnfoldOutlined,
-} from '@ant-design/icons';
-import { useAppDispatch, useAppSelector } from 'app/hooks';
-import { setSiderState } from 'app/redux/appStateSlice';
+import React, { useEffect, useState } from 'react';
+import { useAppSelector } from 'app/hooks';
 import { Link, useLocation } from 'react-router-dom';
 import { RouteItem } from 'utils/types';
 import { hasRoutePermission } from 'utils';
