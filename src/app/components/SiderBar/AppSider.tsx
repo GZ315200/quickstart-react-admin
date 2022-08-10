@@ -1,6 +1,6 @@
 
-import React, { useEffect, useState } from 'react';
-import { useAppSelector } from 'app/hooks';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
+import {  useAppSelector } from 'app/hooks';
 import { Link, useLocation } from 'react-router-dom';
 import { RouteItem } from 'utils/types';
 import { hasRoutePermission } from 'utils';
@@ -35,7 +35,7 @@ type RenderMenuItemProps = Pick<
     <Menu.Item
       key={path}
       icon={
-        MenuIcon && <MenuIcon className="anticon" size={22} strokeWidth={3.6} />
+        MenuIcon && <MenuIcon className="anticon"/>
       }
     >
       <Link to={path!}>
@@ -59,7 +59,7 @@ type RenderSubMenuProps = Pick<RouteItem, 'title' | 'children' | 'icon'>
     <Menu.SubMenu
       key={subMenuKey(children)}
       icon={
-        MenuIcon && <MenuIcon className="anticon" size={22} strokeWidth={3.6} />
+        MenuIcon && <MenuIcon className="anticon" styles strokeWidth={3.6} />
       }
       title={title}
     >
@@ -97,7 +97,7 @@ export default function AppSider({ isSiderOpened, routes }: AppSiderProps) {
   }
 
    // 初始时设置打开的嵌套菜单，避免页面刷新时嵌套菜单关闭
-   useEffect(
+   useLayoutEffect(
     () => {
       if (isSiderOpened) {
         const findOpenKeys = (theRoutes) => {
@@ -133,10 +133,7 @@ export default function AppSider({ isSiderOpened, routes }: AppSiderProps) {
           justFind(theRoutes)
           return keys
         }
-        // FIXME: 此处延迟执行，否则可能由于菜单还没渲染完毕，会出现菜单组无法正常打开的情况，尚未找到解决方法
-        setTimeout(() => {
-          setOpenKeys(findOpenKeys(routes))
-        }, 500)
+        setOpenKeys(findOpenKeys(routes))
       }
     },
     /* eslint-disable-next-line */

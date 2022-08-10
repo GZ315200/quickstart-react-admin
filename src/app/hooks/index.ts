@@ -6,3 +6,4 @@ export { default as useLocalStorageState } from './useLocalStorageState';
 export { default as useDebounceEffect } from './useDebounceEffect';
 export { default as useDebounce } from './useDebounce';
 export { default as useDebounceFn } from './useDebounceFn';
+export { default as useTimeout } from './useTimeout';
