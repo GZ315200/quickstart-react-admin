@@ -41,7 +41,7 @@ export default function AppContent({ routes }) {
   useEffect(() => {
     if (!getToken()) {
       dispatch(logout())
-      navigate('/')
+      navigate('/user/login')
     }
   }, [location, dispatch, navigate, routes, permissions])
 
