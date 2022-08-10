@@ -6,7 +6,7 @@ import { login } from 'app/api/user';
 import { setToken } from 'utils/auth';
 import { useAppDispatch } from 'app/hooks';
 import { addLoginUser } from 'app/redux/userLoginSlice';
-import { setLoginState } from 'app/redux/appStateSlice';
+import { signin } from 'app/redux/appStateSlice';
 
 export default function Login() {
 
@@ -35,8 +35,8 @@ export default function Login() {
         }
       }
       dispatch(addLoginUser(data));
-      dispatch(setLoginState(true))
-      navigate("/");
+      dispatch(signin());
+      navigate("/index");
     } catch {
       setBtnLoading(false)
     }

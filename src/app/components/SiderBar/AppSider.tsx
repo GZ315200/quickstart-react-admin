@@ -59,7 +59,7 @@ type RenderSubMenuProps = Pick<RouteItem, 'title' | 'children' | 'icon'>
     <Menu.SubMenu
       key={subMenuKey(children)}
       icon={
-        MenuIcon && <MenuIcon className="anticon" styles strokeWidth={3.6} />
+        MenuIcon && <MenuIcon className="anticon"/>
       }
       title={title}
     >

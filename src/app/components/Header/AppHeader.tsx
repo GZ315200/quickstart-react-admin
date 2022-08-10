@@ -11,7 +11,7 @@ import {
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'app/hooks';
-import { setSiderState, setLoginState } from 'app/redux/appStateSlice';
+import { setSiderState, logout } from 'app/redux/appStateSlice';
 import { BLACK } from 'app/styleConstants';
 import Notice from './Notice';
 import { Space, Avatar, Dropdown, Menu } from 'antd';
@@ -55,7 +55,7 @@ export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscree
     }
     if (key === 2) {
       removeToken()
-      dispatch(setLoginState(false))
+      dispatch(logout())
       navigate(navPath)
     }
   }

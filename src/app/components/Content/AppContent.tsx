@@ -4,17 +4,18 @@ import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { hasRoutePermission } from 'utils';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { getToken } from 'utils/auth';
-import { setLoginState } from 'app/redux/appStateSlice';
+import { logout } from 'app/redux/appStateSlice';
 import { NotFound } from '../Result';
 
 
-const createRoutes = (routes, permissions?: string[]) => {
+function createRoutes(routes, permissions?: string[]) {
   return routes.map(
     ({
       path,
       title,
+      exact,
       children,
-      component,
+      component: Component,
       permissions: routePermission,
     }) => {
       if (!hasRoutePermission(routePermission, permissions)) {
@@ -24,12 +25,15 @@ const createRoutes = (routes, permissions?: string[]) => {
         return createRoutes(children)
       }
       return (
-        <Route key={path} path={path} element={component}>
-      </Route>
+        <Route key={path} path={path} element={Component}>
+          
+        </Route>
       )
     }
   )
 }
+
+
 export default function AppContent({ routes }) {
   const dispatch = useAppDispatch();
   const location = useLocation();
@@ -39,17 +43,17 @@ export default function AppContent({ routes }) {
 
   useEffect(() => {
     if (!getToken()) {
-      dispatch(setLoginState(false))
+      dispatch(logout())
       navigate('/')
     }
-  }, [location, dispatch, navigate])
+  }, [location, dispatch, navigate, routes, permissions])
 
 
 
   return (
     <Routes>
-      {createRoutes(routes, permissions)}
       <Route path="*" element={<NotFound />} />
+      {createRoutes(routes, permissions)}
     </Routes>
   )
 }

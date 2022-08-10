@@ -19,8 +19,11 @@ export const appStateSlice = createSlice({
     name: 'app',
     initialState,
     reducers: {
-        setLoginState(state, action: PayloadAction<boolean>) {
-            state.isLogin = action.payload;
+        signin(state) {
+            state.isLogin = true;
+        },
+        logout(state) {
+            state.isLogin = false;
         },
         setSiderState(state, action: PayloadAction<boolean>) {
             state.isSiderOpened = action.payload;
@@ -37,7 +40,7 @@ export const appStateSlice = createSlice({
     }
 });
 
-export const { setLoginState, setSiderState, setHeaderState, setRouteHub, setLang } = appStateSlice.actions;
+export const { signin, logout , setSiderState, setHeaderState, setRouteHub, setLang } = appStateSlice.actions;
 export const selectAppState = (state: RootState) => state.appState
 
 export default appStateSlice.reducer;

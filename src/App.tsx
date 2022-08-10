@@ -51,7 +51,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         <ConfigProvider locale={locale}>
           <Routes>
-            <Route path="/" element={<MainLayout layout={layoutInfo} />} />
+            <Route path="*" element={<MainLayout layout={layoutInfo} />} />
             <Route path='/user/login' element={<UserLayout />} />
             <Route path='/user/register' element={ <Register/>  } />
             <Route path='/user/forget' element={ <ForgetPassd/>  } />
