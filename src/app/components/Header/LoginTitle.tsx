@@ -5,7 +5,7 @@ type Props = {
   title: string;
 }
 
-export default function LoginHeader(props: Props) {
+export default function LoginTitle(props: Props) {
   return (
     <div className="flex items-center">
       <img alt="logo" className="w-8 mr-4" src={props.logo} />

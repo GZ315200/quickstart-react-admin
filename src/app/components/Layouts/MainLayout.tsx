@@ -9,8 +9,7 @@ import { setSiderState } from 'app/redux/appStateSlice';
 import { AppSider } from '../SiderBar';
 import _ from 'classnames';
 import { AppFooter } from '../Footer';
-import AppContent from './AppContent';
-
+import { AppContent } from '../Content';
 export interface IMainLayoutProps {
   layout: ILocalesProps
 }
