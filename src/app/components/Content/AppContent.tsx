@@ -1,29 +1,55 @@
 
-import React, { useState } from 'react';
-import { useUpdateLayoutEffect } from 'app/hooks';
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
+import { hasRoutePermission } from 'utils';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { getToken } from 'utils/auth';
+import { setLoginState } from 'app/redux/appStateSlice';
+import { NotFound } from '../Result';
 
 
+const createRoutes = (routes, permissions?: string[]) => {
+  return routes.map(
+    ({
+      path,
+      title,
+      children,
+      component,
+      permissions: routePermission,
+    }) => {
+      if (!hasRoutePermission(routePermission, permissions)) {
+        return null
+      }
+      if (children?.length > 0) {
+        return createRoutes(children)
+      }
+      return (
+        <Route key={path} path={path} element={component}>
+      </Route>
+      )
+    }
+  )
+}
 export default function AppContent({ routes }) {
-  const [count, setCount] = useState(0);
-  const [updateLayoutEffectCount, setUpdateLayoutEffectCount] = useState(0);
+  const dispatch = useAppDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const permissions = useAppSelector(({ userLogin }) => userLogin.info.permissions);
 
 
-  useUpdateLayoutEffect(() => {
-    setUpdateLayoutEffectCount((c) => c + 1);
-    return () => {
-      // do something
-     
-    };
-  }, [count]); // you can include deps array if necessary
+  useEffect(() => {
+    if (!getToken()) {
+      dispatch(setLoginState(false))
+      navigate('/')
+    }
+  }, [location, dispatch, navigate])
+
+
 
   return (
-    <div>
-    <p>updateLayoutEffectCount: {updateLayoutEffectCount}</p>
-    <p>
-      <button type="button" onClick={() => setCount((c) => c + 1)}>
-        reRender
-      </button>
-    </p>
-  </div>
+    <Routes>
+      {createRoutes(routes, permissions)}
+      <Route path="/404" element={<NotFound />} />
+    </Routes>
   )
 }

@@ -1,8 +1,8 @@
 import React, { Suspense, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
 import './scrollbar';
 import App from './App';
+import './styles/app.less';
 // import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from 'app/store';

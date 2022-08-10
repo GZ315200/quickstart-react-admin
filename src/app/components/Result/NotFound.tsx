@@ -9,7 +9,7 @@ const imgStyle: CSSProperties = {
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen">
+    <div className="flex flex-col items-center justify-center w-screen h-screen mr-10">
       <NotFoundImg style={imgStyle} />
 
       <h2 className="text-3xl font-medium">Ops!</h2>

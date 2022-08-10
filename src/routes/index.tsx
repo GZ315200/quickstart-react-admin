@@ -10,7 +10,7 @@ const Product = lazy(() => import('app/pages/Product/ProductList'));
 const routes: RouteItem[] = [
     {
       title: '数据分析',
-      icon: <LineChartOutlined />,
+      icon: LineChartOutlined,
       children: [
         {
           title: '系统仪表盘',
@@ -21,7 +21,7 @@ const routes: RouteItem[] = [
     },
     {
       title: '产品管理',
-      icon: <AccountBookOutlined />,
+      icon: AccountBookOutlined,
       children: [
         {
           path: '/productlist',
@@ -32,7 +32,7 @@ const routes: RouteItem[] = [
     },
     {
         title: '用户管理',
-        icon: <UserOutlined />,
+        icon: UserOutlined,
         children: [
           {
             path: '/sysAuthUser',

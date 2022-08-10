@@ -1,0 +1,102 @@
+
+@import '~antd/dist/antd.less';
+@import './variables.less';
+@import './tailwind.css';
+
+::selection {
+  color: inherit !important;
+  background: @select-bg-color;
+}
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: @root-font-size;
+  background: @app-bg;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.header-menu {
+  &__item {
+    &:hover {
+      &.logout-item {
+        color: @danger;
+      }
+
+      color: @primary;
+      background: none;
+    }
+  }
+}
+
+.fullscreen-enabled {
+  background: @app-bg;
+}
+
+.custom-card {
+  padding: 1.25rem;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 0.375rem;
+
+  &__title {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+}
+
+
+.li-marker::marker {
+  color: @primary !important;
+  font-size: 1rem;
+}
+
+
+.ant-message .anticon {
+  top: -3px;
+}
+
+.no-pd-popover {
+  .ant-popover-inner-content {
+    padding: 0;
+  }
+}
+
+.primary.ant-collapse-item > .ant-collapse-header {
+  color: @primary;
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.suspense {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+

@@ -16,7 +16,7 @@ export interface RouteItem {
   /** 页面路由组件 */
   component?: React.ReactNode,
   /** 图标 */
-  icon?: React.ReactNode
+  icon?
   /** 路径 */
   path?: string
   /** 子菜单路由 */

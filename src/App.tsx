@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.less';
 import zhCN from 'antd/es/locale/zh_CN';
 import enUS from 'antd/es/locale/en_US';
 import { ConfigProvider, MenuProps } from 'antd';
