@@ -16,7 +16,7 @@ import { BLACK } from 'app/styleConstants';
 import Notice from './Notice';
 import { Space, Avatar, Dropdown, Menu } from 'antd';
 import { removeToken } from 'utils/auth';
-import { SHOP_HEADER_TITLE } from 'globalConstants';
+import { APP_TITLE } from 'globalConstants';
 
 
 interface AppHeaderProps {
@@ -78,7 +78,7 @@ export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscree
     <HeaderWapper>
        <div className="brand-box">
         <img alt="logo" className="brand-box__logo" src={logo} />
-        <div className="brand-box__text">{SHOP_HEADER_TITLE}</div>
+        <div className="brand-box__text">{APP_TITLE}</div>
       </div>
       <div className="header-right">
         <div className="flex items-center">

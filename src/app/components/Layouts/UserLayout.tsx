@@ -6,7 +6,7 @@ import userPlate1 from 'assets/images/user_plate_1.png';
 import userPlate2 from 'assets/images/user_plate_2.png';
 import userPlate3 from 'assets/images/user_plate_3.png';
 import { CarouselProps } from 'app/types';
-import { SHOP_HEADER_TITLE } from 'globalConstants';
+import { APP_TITLE } from 'globalConstants';
 import { useAppSelector } from 'app/hooks';
 import { useNavigate } from 'react-router-dom';
 import { LoginTitle } from '../Header';
@@ -49,7 +49,7 @@ export default function UserLayout() {
     <div className="user-layout">
       <div className="user-layout__left">
         <div className="form-area">
-          <LoginTitle logo={logo} title={SHOP_HEADER_TITLE} />
+          <LoginTitle logo={logo} title={APP_TITLE} />
           <Login />
         </div>
       </div>
