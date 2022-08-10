@@ -36,7 +36,7 @@ export default function Login() {
       }
       dispatch(addLoginUser(data));
       dispatch(signin());
-      navigate("/index");
+      navigate("/");
     } catch {
       setBtnLoading(false)
     }

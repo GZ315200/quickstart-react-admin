@@ -8,14 +8,12 @@ import { logout } from 'app/redux/appStateSlice';
 import { NotFound } from '../Result';
 
 
-function createRoutes(routes, permissions?: string[]) {
+const createRoutes = (routes, permissions?: string[]) => {
   return routes.map(
     ({
       path,
-      title,
-      exact,
       children,
-      component: Component,
+      component,
       permissions: routePermission,
     }) => {
       if (!hasRoutePermission(routePermission, permissions)) {
@@ -25,8 +23,7 @@ function createRoutes(routes, permissions?: string[]) {
         return createRoutes(children)
       }
       return (
-        <Route key={path} path={path} element={Component}>
-          
+        <Route key={path} path={path} element={component}>
         </Route>
       )
     }

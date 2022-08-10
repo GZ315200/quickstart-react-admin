@@ -2,7 +2,7 @@ import './MainLayout.less';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import React, { useEffect, useState } from 'react';
 import { FullScreen, FullScreenHandle, useFullScreenHandle } from 'react-full-screen';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AppHeader } from '../Header';
 import { ILocalesProps } from '../Header/Locales';
 import { setSiderState } from 'app/redux/appStateSlice';
@@ -19,6 +19,7 @@ export default function MainLayout(props: IMainLayoutProps) {
   const isLogin = useAppSelector(({ appState }) => appState.isLogin);
   const isSiderOpened = useAppSelector(({ appState }) => appState.isSiderOpened);
   const routes = useAppSelector(({appState}) => appState.routes);
+  const { pathname } = useLocation();
 
   let navigate = useNavigate();
   const handle: FullScreenHandle = useFullScreenHandle();
@@ -28,7 +29,10 @@ export default function MainLayout(props: IMainLayoutProps) {
     if (!isLogin) {
       navigate("/user/login");
     }
-  }, [isLogin, navigate])
+    if (pathname === '/') {
+      navigate('/index')
+    }
+  }, [isLogin, navigate, pathname])
 
 
   useEffect(() => {
