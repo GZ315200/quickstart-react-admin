@@ -6,7 +6,6 @@ import moment from 'moment';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import type { Locale } from 'antd/es/locale-provider';
 import { MainLayout, UserLayout } from 'app/components/Layouts';
-import { NotFound } from 'app/components/Result';
 import { ILocalesProps } from 'app/components/Header/Locales';
 import { ForgetPassd, Register } from 'app/pages/Login';
 import { useAppDispatch } from 'app/hooks';
@@ -56,7 +55,6 @@ const App: React.FC = () => {
             <Route path='/user/login' element={<UserLayout />} />
             <Route path='/user/register' element={ <Register/>  } />
             <Route path='/user/forget' element={ <ForgetPassd/>  } />
-            <Route path="*" element={<NotFound />} />
           </Routes>
         </ConfigProvider>
       </BrowserRouter>

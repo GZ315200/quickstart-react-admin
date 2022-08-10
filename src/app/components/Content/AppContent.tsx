@@ -49,7 +49,7 @@ export default function AppContent({ routes }) {
   return (
     <Routes>
       {createRoutes(routes, permissions)}
-      <Route path="/404" element={<NotFound />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }
