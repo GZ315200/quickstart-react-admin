@@ -17,7 +17,7 @@ export default function NotFound() {
         你要前往的页面未找到
       </p>
 
-      <Link replace to="/">
+      <Link replace to="/index">
         <Button size="large" type="primary">
           回到首页
         </Button>
