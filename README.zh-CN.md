@@ -11,7 +11,7 @@ Language : [🇺🇸](./README.md)| [🇨🇳](./README.zh-CN.md)
 
 ### 预览
 
-预览地址：[https://react-admin-navy.vercel.app/](https://react-admin-navy.vercel.app/)
+预览地址：[https://quickstart-react-admin.vercel.app/](https://quickstart-react-admin.vercel.app/)
 
 ### 功能
 

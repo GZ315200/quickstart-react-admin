@@ -14,7 +14,7 @@ Inspired by [https://github.com/Codennnn/portal](https://github.com/Codennnn/por
 
 ## Preview
 
-prod: [https://react-admin-navy.vercel.app/](https://react-admin-navy.vercel.app/)
+prod: [https://quickstart-react-admin.vercel.app/](https://quickstart-react-admin.vercel.app/)
 
 
 
