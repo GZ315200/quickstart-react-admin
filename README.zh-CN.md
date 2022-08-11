@@ -1,29 +1,34 @@
+
 Language : 🇺🇸 | [🇨🇳](./README.zh-CN.md) 
 
 <h1 align="center">QuickStart React Admin</h1>
 
 <div align="center">
 
-An quick-start solution for enterprise applications as a React templete.
-
+    企业级应用程序的快速启动的React模板的解决方案。
 </div>
 
-## Features
+### 功能
 
-- :bulb: **TypeScript**: A language for application-scale JavaScript
-- :scroll: **Blocks**: Build page with block template
-- :gem: **Neat Design**: Follow [Ant Design specification](http://ant.design/)
-- :triangular_ruler: **Common Templates**: Typical templates for enterprise applications
-- :rocket: **State of The Art Development**: Newest development stack of React/Redux/Redux-Tookit/antd
-- :iphone: **Responsive**: Designed for variable screen sizes
-- :art: **Theming**: Customizable theme with simple config
-- :globe_with_meridians: **International**: Built-in i18n solution
-- :gear: **Best Practices**: Solid workflow to make your code healthy
-- :1234: **Mock development**: Easy to use mock development solution
-- :white_check_mark: **UI Test**: Fly safely with unit and e2e tests
+1. 支持登录、注销、密码重置功能
+2. 支持个人中心，消息提醒、多语言动态切换
+3. 支持左侧菜单的切换，路由对应的页面同样切换
+4. 支持权限验证是否显示页面和菜单
+5. 支持全屏模式切换
+6. 支持App和Browser端自适应布局
 
-## Directory Structure
+### 技术
+1. 支持carco.js作为应用配置工具
+2. 支持tailwind css书写样式
+3. 支持typescript编写code
+4. 支持styled-components定义组件
+8. 支持antd UI组件
+9. 支持react-router v6
+10. windows系统scroll bar样式优化
+11. 支持redux存储数据并支持redux-toolkit简化redux开发
 
+---
+## 目录结构
 ```
 ├── README.md
 ├── craco.config.js
@@ -37,10 +42,10 @@ An quick-start solution for enterprise applications as a React templete.
 ├── src
 │   ├── App.tsx
 │   ├── app
-│   │   ├── api
+│   │   ├── api -- 后端接口
 │   │   │   ├── notice.ts
 │   │   │   └── user.ts
-│   │   ├── components
+│   │   ├── components  -- 公共组件
 │   │   │   ├── Brand.tsx
 │   │   │   ├── Calendar.tsx
 │   │   │   ├── Content
@@ -72,36 +77,36 @@ An quick-start solution for enterprise applications as a React templete.
 │   │   │   ├── TimePicker.tsx
 │   │   │   ├── Welcome.tsx
 │   │   │   └── index.ts
-│   │   ├── hooks
-│   │   ├── pages
-│   │   ├── redux
+│   │   ├── hooks  -- 公共hooks
+│   │   ├── pages  -- 业务系统页面
+│   │   ├── redux 
 │   │   │   ├── appStateSlice.ts
 │   │   │   └── userLoginSlice.ts
 │   │   ├── store.ts
-│   │   ├── styleConstants.ts
-│   │   └── types
+│   │   ├── styleConstants.ts  -- 公共样式
+│   │   └── types  -- 公共类型
 │   │       ├── app.ts
 │   │       ├── index.ts
 │   │       └── user.ts
-│   ├── assets
+│   ├── assets  -- 资源
 │   │   └── images
-│   ├── globalConstants.ts
+│   ├── globalConstants.ts  -- 公共配置
 │   ├── index.tsx
-│   ├── locales
+│   ├── locales  -- 多语言配置
 │   │   ├── en_US.json
 │   │   ├── index.ts
 │   │   └── zh_CN.json
 │   ├── react-app-env.d.ts
 │   ├── reportWebVitals.ts
-│   ├── routes
+│   ├── routes   -- 路由
 │   │   └── index.tsx
-│   ├── scrollbar.ts
+│   ├── scrollbar.ts 
 │   ├── serviceWorker.js
-│   ├── styles
+│   ├── styles -- 样式
 │   │   ├── app.less
 │   │   ├── tailwind.css
 │   │   └── variables.less
-│   └── utils
+│   └── utils -- 公共工具类
 │       ├── api.ts
 │       ├── auth.ts
 │       ├── index.ts
@@ -112,10 +117,9 @@ An quick-start solution for enterprise applications as a React templete.
 └── yarn.lock
 
 ```
+## 启动方式
 
-## Useage
-
-### Dev
+### 开发环境
 
 ```bash
 $ mkdir <your-project-name>
@@ -124,16 +128,17 @@ $ yarn install
 $ yarn start         # visit http://localhost:3000
 ```
 
-### Production
+### 生产环境
 
 ```bash
 $ mkdir <your-project-name>
 $ cd <your-project-name>
 $ yarn build
 ```
-lookup the output path: `/dist`
+在文件根目录查看前端资源输出文件夹: `/dist`
 
-## Browsers support
+
+## 支持浏览器
 
 Modern browsers.
 
@@ -141,9 +146,9 @@ Modern browsers.
 | --- | --- | --- | --- | --- |
 | Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
-## Contributing
+## 贡献代码
 
-Any type of contribution is welcome, here are some examples of how you may contribute to this project:
+欢迎贡献代码
 
 - Submit [issues](https://github.com/GZ315200/quickstart-react-admin/issues) to report bugs or ask questions.
 - Propose [pull requests](https://github.com/GZ315200/quickstart-react-admin/pulls) to improve our code.
