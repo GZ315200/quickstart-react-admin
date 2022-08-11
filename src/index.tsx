@@ -1,4 +1,4 @@
-import React, { Suspense, StrictMode } from 'react';
+import React, { Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import './scrollbar';
 import App from './App';
@@ -21,21 +21,19 @@ const container = document.getElementById('root')!;
 const root = createRoot(container);
 
 root.render(
-  <StrictMode>
-    <Provider store={store}>
-      <Suspense
-        fallback={
-          <div className="suspense">
-            <Spin size="large" tip="页面加载中..."/>
-          </div>
-        }
-      >
-        <HelmetProvider>
-          <App />
-        </HelmetProvider>
-      </Suspense>
-    </Provider>
-  </StrictMode>
+  <Provider store={store}>
+  <Suspense
+    fallback={
+      <div className="suspense">
+        <Spin size="large" tip="页面加载中..."/>
+      </div>
+    }
+  >
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
+  </Suspense>
+</Provider>
 );
 
 

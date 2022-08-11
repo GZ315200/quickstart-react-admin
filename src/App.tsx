@@ -3,7 +3,7 @@ import zhCN from 'antd/es/locale/zh_CN';
 import enUS from 'antd/es/locale/en_US';
 import { ConfigProvider, MenuProps } from 'antd';
 import moment from 'moment';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {  HashRouter, Route, Routes } from 'react-router-dom';
 import type { Locale } from 'antd/es/locale-provider';
 import { MainLayout, UserLayout } from 'app/components/Layouts';
 import { ILocalesProps } from 'app/components/Header/Locales';
@@ -47,7 +47,7 @@ const App: React.FC = () => {
 
   return (
     <div className="not-sr-only">
-      <BrowserRouter>
+      <HashRouter>
         <ConfigProvider locale={locale}>
           <Routes>
             <Route path="*" element={<MainLayout layout={layoutInfo} />} />
@@ -56,7 +56,7 @@ const App: React.FC = () => {
             <Route path='/user/forget' element={ <ForgetPassd/>  } />
           </Routes>
         </ConfigProvider>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
