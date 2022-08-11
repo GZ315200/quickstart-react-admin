@@ -6,6 +6,9 @@ Language : [🇺🇸](./README.md)| [🇨🇳](./README.zh-CN.md)
 
 An quick-start solution for enterprise applications as a React templete.
 
+
+Inspired by [https://github.com/Codennnn/portal](https://github.com/Codennnn/portal)
+
 </div>
 
 ## Features
