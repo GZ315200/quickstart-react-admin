@@ -25,8 +25,8 @@ export default function Notice({ iconStyle }) {
 
 
   useEffect(() => {
-    getNoticies()
-  }, [getNoticies])
+    // getNoticies()
+  }, [])
 
   const routeToNotice = () => {
     navigate('/notice');

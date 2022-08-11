@@ -46,12 +46,9 @@ export const isArray = (value: unknown) => {
 
   //关闭react devtools
 export const disableReactDevTools = (): void => {
-  const noop = (): void => undefined;
-  const DEV_TOOLS = (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__;
-
-  if (isObject(DEV_TOOLS)) {
-      for (const [key, value] of (<any>Object).entries(DEV_TOOLS)) {
-          DEV_TOOLS[key] = isFunction(value) ? noop : null;
-      }
+  if (process.env.NODE_ENV === 'production') {
+    if (typeof (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__ === 'object') {
+      (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__.inject = () => void 0;
+    }
   }
 };
