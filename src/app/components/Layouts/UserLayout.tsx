@@ -1,6 +1,6 @@
 import React, { lazy, useEffect, useState } from 'react';
 import './UserLayout.less'
-import logo from 'assets/images/logo48.png';
+import logo from 'assets/images/logo.svg';
 import { Carousel } from 'antd';
 import userPlate1 from 'assets/images/user_plate_1.png';
 import userPlate2 from 'assets/images/user_plate_2.png';

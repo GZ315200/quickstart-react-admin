@@ -1,7 +1,7 @@
 
 
 import React, { CSSProperties } from 'react';
-import logo from 'assets/images/logo48.png';
+import logo from 'assets/images/logo.svg';
 import styled from 'styled-components';
 import userAvatar from 'assets/images/shop.jpeg';
 import Locales, { ILocalesProps } from './Locales';
