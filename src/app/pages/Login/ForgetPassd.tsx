@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import styled from 'styled-components/macro';
 import { Button, Form, Input } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
@@ -42,8 +41,8 @@ export default function ForgetPassd() {
 
 
     return (
-        <Wrapper>
-            <Link className='opacity-75 cursor-pointer transition primary hover:opacity-100 flex'
+        <div className="forget-form">
+            <Link className='opacity-75 cursor-pointer transition primary hover:opacity-100 flex mb-5 mt-10'
                 to="/user/login">
                 <LeftOutlined className='mr-1 mt-1' />
                 返回登录
@@ -68,7 +67,7 @@ export default function ForgetPassd() {
                     name="managerPhone"
                     rules={[{ required: true, message: '请输入手机号' }]}
                 >
-                    <Input placeholder="请输入手机号" />
+                    <Input placeholder="请输入手机号" className="w-3/6" />
                 </Form.Item>
                 <Form.Item
                     label={
@@ -79,7 +78,7 @@ export default function ForgetPassd() {
                     name="verifyCode"
                     rules={[{ required: true, message: '请输入验证码' }]}
                 >
-                    <Input placeholder="请输入验证码" />
+                    <Input placeholder="请输入验证码" className="w-3/6" />
                 </Form.Item>
                 <Form.Item>
                     <Button disabled={disable} size="middle" type='link' onClick={handleVerifycode}>
@@ -95,12 +94,6 @@ export default function ForgetPassd() {
                     </Button>
                 </Form.Item>
             </Form>
-        </Wrapper>
+        </div>
     )
 }
-
-const Wrapper = styled.div`
-  width: 30%;
-  margin: 20px;
-`;
-
