@@ -6,7 +6,7 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { getToken } from 'utils/auth';
 import { logout } from 'app/redux/appStateSlice';
 import { NotFound } from '../Result';
-
+import Welcome from '../Welcome';
 
 const createRoutes = (routes, permissions?: string[]) => {
   return routes.map(
@@ -50,6 +50,7 @@ export default function AppContent({ routes }) {
   return (
     <Routes>
       <Route path="*" element={<NotFound />} />
+      <Route path='/' element={ <Welcome /> }></Route>
       {createRoutes(routes, permissions)}
     </Routes>
   )

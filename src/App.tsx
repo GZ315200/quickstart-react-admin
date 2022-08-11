@@ -12,7 +12,6 @@ import { useAppDispatch } from 'app/hooks';
 import { setLang } from 'app/redux/appStateSlice';
 
 
-
 const App: React.FC = () => {
   const [locale, setLocale] = useState<Locale>(zhCN);
   const [visible, setvisible] = useState<boolean>(false);
