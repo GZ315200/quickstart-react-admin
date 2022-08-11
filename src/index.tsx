@@ -7,11 +7,18 @@ import './styles/app.less';
 import { Provider } from 'react-redux';
 import { store } from 'app/store';
 import { Spin } from 'antd';
-import { HelmetProvider } from 'react-helmet-async'
+import { HelmetProvider } from 'react-helmet-async';
+
+import {
+  disableReactDevTools
+} from 'utils';
+
+if(process.env.NODE_ENV === 'production'){
+  disableReactDevTools();
+}
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
-
 
 root.render(
   <StrictMode>
