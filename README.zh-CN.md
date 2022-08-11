@@ -9,6 +9,10 @@ Language : [🇺🇸](./README.md)| [🇨🇳](./README.zh-CN.md)
         
 </div>
 
+### 预览
+
+预览地址：[https://react-admin-navy.vercel.app/](https://react-admin-navy.vercel.app/)
+
 ### 功能
 
 1. 支持登录、注销、密码重置功能
