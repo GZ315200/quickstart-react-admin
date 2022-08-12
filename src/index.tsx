@@ -19,22 +19,24 @@ const container = document.getElementById('root')!;
 const root = createRoot(container);
 
 root.render(
-  <Provider store={store}>
-  <Suspense
-    fallback={
-      <div className="suspense">
-        <Spin size="large" tip="页面加载中..."/>
-      </div>
-    }
-  >
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </Suspense>
-</Provider>
+  <React.StrictMode>
+    <Provider store={store}>
+      <Suspense
+        fallback={
+          <div className="suspense">
+            <Spin size="large" tip="页面加载中..." />
+          </div>
+        }
+      >
+        <HelmetProvider>
+          <App />
+        </HelmetProvider>
+      </Suspense>
+    </Provider>
+  </React.StrictMode>
 );
 
-if(process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production') {
   disableReactDevTools();
 }
 // If you want to start measuring performance in your app, pass a function
