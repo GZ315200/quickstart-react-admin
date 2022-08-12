@@ -31,6 +31,7 @@ prod: [https://quickstart-react-admin.vercel.app/](https://quickstart-react-admi
 - :gear: **Best Practices**: Solid workflow to make your code healthy
 - :1234: **Mock development**: Easy to use mock development solution
 - :white_check_mark: **UI Test**: Fly safely with unit and e2e tests
+- :Docker: Easy to run with Docker
 
 ## Directory Structure
 
