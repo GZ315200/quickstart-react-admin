@@ -10,7 +10,7 @@ export interface LoginUserResp {
         managerPhone?: string,
         shopLogo?: string,
         loginTime?: string,
-        permission?: Array<string>
+        permissions?: Array<string>
     }
 }
 

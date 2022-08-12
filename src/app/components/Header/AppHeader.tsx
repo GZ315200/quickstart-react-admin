@@ -17,6 +17,7 @@ import Notice from './Notice';
 import { Space, Avatar, Dropdown, Menu } from 'antd';
 import { removeToken } from 'utils/auth';
 import { APP_TITLE } from 'globalConstants';
+import { clearLoginUser } from 'app/redux/userLoginSlice';
 
 
 interface AppHeaderProps {
@@ -56,6 +57,7 @@ export default function AppHeader({ isSiderOpened, isFullScreen, switchFullscree
     if (key === 2) {
       removeToken()
       dispatch(logout())
+      dispatch(clearLoginUser())
       navigate(navPath)
     }
   }

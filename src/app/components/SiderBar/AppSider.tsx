@@ -100,9 +100,9 @@ export default function AppSider({ isSiderOpened, routes }: AppSiderProps) {
    useLayoutEffect(
     () => {
       if (isSiderOpened) {
-        const findOpenKeys = (theRoutes) => {
-          const keys = []
-          const justFind = (r) =>
+        let findOpenKeys = (theRoutes) => {
+          let keys = []
+          let justFind = (r) =>
             r.some(({ path, children }) => {
               let hasFoundPath = path === pathname
 
@@ -110,7 +110,7 @@ export default function AppSider({ isSiderOpened, routes }: AppSiderProps) {
                 hasFoundPath = children.some(
                   ({ path: routePath, children: childRoutes }) => {
                     if (childRoutes?.length > 0) {
-                      const isFound = justFind(childRoutes)
+                      let isFound = justFind(childRoutes)
                       if (isFound) {
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore

@@ -7,6 +7,7 @@ import { getToken } from 'utils/auth';
 import { logout } from 'app/redux/appStateSlice';
 import { NotFound } from '../Result';
 import Welcome from '../Welcome';
+import { clearLoginUser } from 'app/redux/userLoginSlice';
 
 const createRoutes = (routes, permissions?: string[]) => {
   return routes.map(
@@ -41,6 +42,7 @@ export default function AppContent({ routes }) {
   useEffect(() => {
     if (!getToken()) {
       dispatch(logout())
+      dispatch(clearLoginUser())
       navigate('/user/login')
     }
   }, [location, dispatch, navigate, routes, permissions])
