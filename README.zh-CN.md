@@ -31,6 +31,7 @@ Language : [🇺🇸](./README.md)| [🇨🇳](./README.zh-CN.md)
 9. 支持react-router v6
 10. windows系统scroll bar样式优化
 11. 支持redux存储数据并支持redux-toolkit简化redux开发
+12. 支持docker一键部署
 
 ---
 ## 目录结构
