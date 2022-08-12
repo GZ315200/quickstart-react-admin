@@ -35,10 +35,10 @@ export const userLoginSlice = createSlice({
     initialState,
     reducers: {
         addLoginUser: (state, action: PayloadAction<LoginUserResp>) => {
-            state = action.payload
+            state.info = {...initialState.info, ...action.payload.info  }
         },
         clearLoginUser: (state) => {
-            state = initialState
+            state.info = {...initialState.info }
         }
     }
 });

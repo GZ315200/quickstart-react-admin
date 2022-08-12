@@ -32,13 +32,6 @@ export default function Login() {
       const data: LoginUserResp = {
         info: {
           userId: 1,
-          wechat: '',
-          userType: 0,
-          isSysUser: false,
-          isRoot: false,
-          managerPhone: '',
-          shopLogo: '',
-          permissions: []
         }
       }
       dispatch(addLoginUser(data));
