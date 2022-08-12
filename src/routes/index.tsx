@@ -1,11 +1,12 @@
-import  React, { lazy } from 'react';
+import React from 'react';
 import type { RouteItem } from 'utils/types';
 import { LineChartOutlined, AccountBookOutlined, UserOutlined, 
   UnorderedListOutlined, DashboardOutlined, WechatOutlined, TeamOutlined } from '@ant-design/icons';
-const DashboardHome = lazy(() => import('app/pages/Dashboard/DashboardHome'));
-const SysAuthUser = lazy(() => import('app/pages/SysAuthUser/SysAuthUserList'));
-const WeappUser = lazy(() => import('app/pages/WeAppUser/WeAppUserList'));
-const Product = lazy(() => import('app/pages/Product/ProductList'));
+import { DashboardHome } from 'app/pages/Dashboard';
+import { ProductList } from 'app/pages/Product';
+import { SysAuthUserList } from 'app/pages/SysAuthUser';
+import { WeAppUserList } from 'app/pages/WeAppUser';
+
 
 const routes: RouteItem[] = [
     {
@@ -28,7 +29,7 @@ const routes: RouteItem[] = [
           path: '/productlist',
           title: '产品列表',
           icon: UnorderedListOutlined,
-          component: <Product />,
+          component: <ProductList />,
         },
       ],
     },
@@ -40,13 +41,13 @@ const routes: RouteItem[] = [
             path: '/sysAuthUser',
             title: '系统用户列表',
             icon: TeamOutlined,
-            component: <SysAuthUser />,
+            component: <SysAuthUserList />,
           },
           {
             path: '/weAppUser',
             title: '小程序用户列表',
             icon: WechatOutlined,
-            component: <WeappUser />,
+            component: <WeAppUserList />,
           },
         ],
       }

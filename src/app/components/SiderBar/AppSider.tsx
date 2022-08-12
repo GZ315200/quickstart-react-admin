@@ -1,5 +1,5 @@
 
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {  useAppSelector } from 'app/hooks';
 import { Link, useLocation } from 'react-router-dom';
 import { RouteItem } from 'utils/types';
@@ -97,12 +97,12 @@ export default function AppSider({ isSiderOpened, routes }: AppSiderProps) {
   }
 
    // 初始时设置打开的嵌套菜单，避免页面刷新时嵌套菜单关闭
-   useLayoutEffect(
+   useEffect(
     () => {
       if (isSiderOpened) {
-        let findOpenKeys = (theRoutes) => {
-          let keys = []
-          let justFind = (r) =>
+        const findOpenKeys = (theRoutes) => {
+          const keys = []
+          const justFind = (r) =>
             r.some(({ path, children }) => {
               let hasFoundPath = path === pathname
 
@@ -110,7 +110,7 @@ export default function AppSider({ isSiderOpened, routes }: AppSiderProps) {
                 hasFoundPath = children.some(
                   ({ path: routePath, children: childRoutes }) => {
                     if (childRoutes?.length > 0) {
-                      let isFound = justFind(childRoutes)
+                      const isFound = justFind(childRoutes)
                       if (isFound) {
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
