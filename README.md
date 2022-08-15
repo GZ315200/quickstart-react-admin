@@ -1,4 +1,4 @@
-Language : [🇺🇸](https://ticktech.club/quickstart-react-admin/)| [🇨🇳中文文档](https://ticktech.club/quickstart-react-admin/) 
+Language : [🇺🇸](https://ticktech.club/quickstart-react-admin/)| [🇨🇳中文文档](https://ticktech.club/quickstart-react-admin/README.zh-CN.html) 
 
 <h1 align="center">QuickStart React Admin</h1>
 
